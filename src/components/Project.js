@@ -48,7 +48,7 @@ const Project = () => {
       }
     }
   `)
-  console.log(data)
+  //console.log(data)
 
   useEffect(() => {
     if (index === limit) {

@@ -30,7 +30,7 @@ const Slider = () => {
       }
     }
   `)
-  console.log(data)
+  //console.log(data)
 
   useEffect(() => {
     const limit = 3
