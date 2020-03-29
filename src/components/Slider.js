@@ -34,7 +34,7 @@ const Slider = () => {
 
   useEffect(() => {
     const limit = 3
-    console.log(limit)
+    //console.log(limit)
     if (index === limit) {
       setIndex(0)
     }
