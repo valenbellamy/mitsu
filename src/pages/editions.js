@@ -1,19 +1,19 @@
 import React from "react"
 import Layout from "../components/layout"
-import Slider from "../components/Slider"
+import Editions from "../components/Editions"
 import SEO from "../components/seo"
 import Menu from "../components/Menu"
 
-const IndexPage = ({ data }) => {
+const editions = () => {
   return (
     <Layout>
       <SEO title="Accueil" />
-      <Menu />
+      <Menu showFilters="true" />
       <div className="content">
-        <Slider />
+        <Editions />
       </div>
     </Layout>
   )
 }
 
-export default IndexPage
+export default editions

@@ -1,0 +1,118 @@
+.menu,
+.menu-fixed,
+nav {
+  display: block;
+  // .menu__column {
+  //   height: calc(100vh - 40px);
+  //   width: 50%;
+  //   float: left;
+  //   .menu__blk {
+  //     height: 25%;
+  //     padding: 0px 20px 20px 0px;
+  //     text-transform: uppercase;
+  //     border: 1px solid green;
+  //     &.--fullHeight {
+  //       height: 100%;
+  //     }
+  //     .menu__list {
+  //       padding-left: 20px;
+  //       li > span,
+  //       li > a > span {
+  //         color: #d0d0d0;
+  //         text-transform: uppercase;
+  //         transition: color 0.3s;
+  //         &:hover {
+  //           color: #6e3cfa;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+  .menu__list {
+    padding-left: 2rem;
+    li,
+    li > a,
+    li > span,
+    li > a > span {
+      color: #d0d0d0;
+      text-transform: uppercase;
+      transition: color 0.3s;
+      &:hover {
+        color: #6e3cfa;
+      }
+    }
+  }
+  .filter-values {
+    display: none;
+  }
+  .--show {
+    display: block;
+  }
+  .logo {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 50%;
+    z-index: 10;
+  }
+  .menu__collapse {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 40px);
+    .menu__center {
+      position: absolute;
+      top: 35%;
+      width: 50%;
+      z-index: 10;
+    }
+  }
+}
+
+.menu__dropdown {
+  position: absolute;
+  left: 50%;
+  top: 0px;
+  width: 50%;
+}
+
+.dropdown {
+  position: relative;
+  text-transform: uppercase;
+  //height: 17px;
+  //overflow: hidden;
+  .dropdown__menu {
+    display: none;
+  }
+  // &:hover {
+  //   .dropdown__menu {
+  //     display: block;
+  //   }
+  // }
+  &.--special {
+    .dropdown__menu {
+      width: 200%;
+      transform: translate(-50%, 0%);
+      .dropdown__item {
+        width: 50%;
+      }
+      &:hover {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+    // &:hover {
+    //   .dropdown__menu {
+    //     display: flex;
+    //     justify-content: space-between;
+    //   }
+    // }
+  }
+  > span {
+    &:hover {
+      + .dropdown__menu {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+}

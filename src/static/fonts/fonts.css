@@ -1,0 +1,16 @@
+@font-face {
+  font-family: Maison;
+  font-weight: 400;
+  font-style: normal;
+  src: url("MaisonNeue-Book.woff") format("woff"),
+    url("MaisonNeue-Book.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: Maison Mono;
+  font-weight: 400;
+  font-style: normal;
+  src: url("MaisonNeue-Mono.woff") format("woff"),
+    url("MaisonNeue-Mono.woff2") format("woff2");
+  font-display: swap;
+}

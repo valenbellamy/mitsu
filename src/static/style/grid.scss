@@ -1,0 +1,26 @@
+// .grid {
+//   display: grid;
+//   grid-template-columns: 1fr 2fr;
+//   grid-template-rows: 1fr;
+//   grid-gap: 20px;
+//   height: 100%;
+// }
+
+.menu,
+.menu-fixed,
+nav {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: calc(100% / 3 - 30px);
+  //background-color: #eee;
+}
+
+.content {
+  position: relative;
+  margin-left: calc(100% / 3 + 5px);
+  // top: 20px;
+  // right: 20px;
+  // width: calc(200% / 3 - 30px);
+  //background-color: #eee;
+}

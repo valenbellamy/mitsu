@@ -1,19 +1,19 @@
 import React from "react"
 import Layout from "../components/layout"
-import Slider from "../components/Slider"
+import Project from "../components/Project"
 import SEO from "../components/seo"
 import Menu from "../components/Menu"
 
-const IndexPage = ({ data }) => {
+const project = () => {
   return (
     <Layout>
       <SEO title="Accueil" />
       <Menu />
       <div className="content">
-        <Slider />
+        <Project />
       </div>
     </Layout>
   )
 }
 
-export default IndexPage
+export default project

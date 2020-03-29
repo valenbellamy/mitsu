@@ -1,0 +1,18 @@
+.sliderHome {
+  display: flex;
+  width: 50%;
+  height: calc(100vh - 40px);
+  align-items: center;
+  position: relative;
+  .slide {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    cursor: pointer;
+    &.active {
+      opacity: 1;
+    }
+  }
+}

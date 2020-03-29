@@ -1,0 +1,37 @@
+:root {
+  --main-text-color: #000000;
+  --second-text-color: #d0d0d0;
+}
+
+p,
+a,
+span,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li {
+  font-family: Maison;
+  color: var(--main-text-color);
+  font-size: 2rem;
+  line-height: 1.1;
+}
+
+a,
+h1,
+h2,
+h3 {
+  text-transform: uppercase;
+}
+
+a,
+a > span {
+  text-decoration: none;
+  transition: color 0.3s;
+  &:hover {
+    color: #6e3cfa;
+  }
+}
