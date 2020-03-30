@@ -52,7 +52,7 @@ const Editions = () => {
               alt="Picture of Valentin working"
             />
           </div>
-          <Link to="/project">
+          <Link to="/edition">
             <span>more infos</span>
           </Link>
         </div>
@@ -76,7 +76,7 @@ const Editions = () => {
               alt="Picture of Valentin working"
             />
           </div>
-          <Link to="/project">
+          <Link to="/edition">
             <span>more infos</span>
           </Link>
         </div>
@@ -100,7 +100,7 @@ const Editions = () => {
               alt="Picture of Valentin working"
             />
           </div>
-          <Link to="/project">
+          <Link to="/edition">
             <span>more infos</span>
           </Link>
         </div>
@@ -124,7 +124,7 @@ const Editions = () => {
               alt="Picture of Valentin working"
             />
           </div>
-          <Link to="/project">
+          <Link to="/edition">
             <span>more infos</span>
           </Link>
         </div>
@@ -148,7 +148,7 @@ const Editions = () => {
               alt="Picture of Valentin working"
             />
           </div>
-          <Link to="/project">
+          <Link to="/edition">
             <span>more infos</span>
           </Link>
         </div>

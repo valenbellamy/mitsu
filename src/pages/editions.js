@@ -7,7 +7,7 @@ import Menu from "../components/Menu"
 const editions = () => {
   return (
     <Layout>
-      <SEO title="Accueil" />
+      <SEO title="Editions" />
       <Menu showFilters={true} />
       <div className="content">
         <Editions />

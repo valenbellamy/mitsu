@@ -1,0 +1,19 @@
+.edition-detail {
+  .edition-detail__description {
+    width: 80%;
+    margin-bottom: 2rem;
+    //font-size: 1.5rem;
+  }
+  .edition-detail__list {
+    display: flex;
+    margin-bottom: 2rem;
+    span {
+      margin-right: 2rem;
+      font-size: 1.5rem;
+    }
+  }
+  .edition-detail__footer {
+    display: flex;
+    justify-content: flex-end;
+  }
+}

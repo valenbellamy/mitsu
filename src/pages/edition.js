@@ -1,17 +1,16 @@
 import React from "react"
-import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Carousel from "../components/Carousel"
 import SEO from "../components/seo"
 import Menu from "../components/Menu"
 
-const project = ({ data }) => {
+const edition = ({ data }) => {
   return (
     <Layout>
-      <SEO title="Project" />
+      <SEO title="Edition" />
       <Menu />
       <div className="content">
-        <Carousel data={data} project={true} />
+        <Carousel data={data} edition={true} />
       </div>
     </Layout>
   )
@@ -57,4 +56,4 @@ export const query = graphql`
   }
 `
 
-export default project
+export default edition
