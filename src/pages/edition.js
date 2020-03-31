@@ -8,7 +8,7 @@ const edition = ({ data }) => {
   return (
     <Layout>
       <SEO title="Edition" />
-      <Menu />
+      <Menu showCart={true} />
       <div className="content">
         <Carousel data={data} edition={true} />
       </div>

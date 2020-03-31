@@ -1,14 +1,14 @@
 .edition-detail {
   .edition-detail__description {
     width: 80%;
-    margin-bottom: 2rem;
+    margin-bottom: $main-size;
     //font-size: 1.5rem;
   }
   .edition-detail__list {
     display: flex;
-    margin-bottom: 2rem;
+    margin-bottom: $main-size;
     span {
-      margin-right: 2rem;
+      margin-right: $main-size;
       font-size: 1.5rem;
     }
   }

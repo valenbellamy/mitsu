@@ -36,21 +36,31 @@
     .--prev {
       left: 0px;
       background: rgb(110, 60, 250);
-      background: rgb(114, 39, 255);
+      // background: rgb(114, 39, 255);
+      // background: linear-gradient(
+      //   270deg,
+      //   rgba(114, 39, 255, 0.13182773109243695) 10%,
+      //   rgba(114, 38, 254, 1) 100%
+      // );
       background: linear-gradient(
         270deg,
-        rgba(114, 39, 255, 0.13182773109243695) 10%,
-        rgba(114, 38, 254, 1) 100%
+        rgba(110, 60, 250, 0) 15%,
+        rgba(110, 60, 250, 1)
       );
     }
     .--next {
       right: 0px;
       background: rgb(110, 60, 250);
-      background: rgb(114, 39, 255);
+      // background: rgb(114, 39, 255);
+      // background: linear-gradient(
+      //   90deg,
+      //   rgba(114, 39, 255, 0.13182773109243695) 10%,
+      //   rgba(114, 38, 254, 1) 100%
+      // );
       background: linear-gradient(
         90deg,
-        rgba(114, 39, 255, 0.13182773109243695) 10%,
-        rgba(114, 38, 254, 1) 100%
+        rgba(110, 60, 250, 0) 15%,
+        rgba(110, 60, 250, 1)
       );
     }
   }
@@ -58,17 +68,17 @@
     .carousel__header {
       display: flex;
       justify-content: space-between;
-      margin-top: 2rem;
-      margin-bottom: 2rem;
+      margin-top: $main-size;
+      margin-bottom: $main-size;
       .carousel__title {
         display: flex;
         //justify-content: flex-start;
         h2 {
-          margin-right: 2rem;
+          margin-right: $main-size;
           text-transform: uppercase;
         }
         ul {
-          margin-right: 2rem;
+          margin-right: $main-size;
           li {
             display: inline-block;
             text-transform: uppercase;
@@ -84,7 +94,7 @@
   &.carousel--edition {
     .carousel__inner {
       .carousel__item {
-        background-color: #d0d0d0;
+        background-color: $second-text-color;
         .gatsby-image-wrapper {
           height: 80%;
           width: 80%;

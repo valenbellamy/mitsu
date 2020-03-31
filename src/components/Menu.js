@@ -2,13 +2,21 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 
-const Menu = ({ showFilters }) => {
+const Menu = ({ showFilters, showCart }) => {
   return (
     <nav>
-      <div className="logo">
-        <Link to="/">
-          <h1>studio mitsu</h1>
-        </Link>
+      <div className="menu__top">
+        <div>
+          <Link to="/">
+            <h1>studio mitsu</h1>
+          </Link>
+          <div className={`cart ${showCart ? "--show" : ""}`}>cart</div>
+          <div className="burger-btn --open">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
       </div>
       <div className="menu__collapse">
         <div className="menu__center">
@@ -25,7 +33,10 @@ const Menu = ({ showFilters }) => {
           <div className="dropdown --special">
             <span>projets</span>
             <div className="dropdown__menu">
-              <ul className="menu__list dropdown__item" id="project__category">
+              <ul
+                className="menu__list --special-color dropdown__item"
+                id="project__category"
+              >
                 <li>
                   <span>identity</span>
                 </li>
@@ -127,10 +138,12 @@ const Menu = ({ showFilters }) => {
 
 Menu.defaultProps = {
   showFilters: false,
+  showCart: false,
 }
 
 Menu.propTypes = {
   showFilters: PropTypes.bool,
+  showCart: PropTypes.bool,
 }
 
 export default Menu

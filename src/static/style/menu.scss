@@ -29,16 +29,27 @@ nav {
   //   }
   // }
   .menu__list {
-    padding-left: 2rem;
+    padding-left: $main-size;
     li,
     li > a,
     li > span,
     li > a > span {
-      color: #d0d0d0;
+      color: $main-text-color;
       text-transform: uppercase;
       transition: color 0.3s;
       &:hover {
         color: #6e3cfa;
+      }
+    }
+    &.--special-color {
+      li,
+      li > a,
+      li > span,
+      li > a > span {
+        color: $second-text-color;
+        &:hover {
+          color: #6e3cfa;
+        }
       }
     }
   }
@@ -48,12 +59,55 @@ nav {
   .--show {
     display: block;
   }
-  .logo {
+  .menu__top {
     position: absolute;
     top: 0px;
     left: 0px;
     width: 50%;
+    height: 35%;
     z-index: 10;
+    > div {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+    .cart {
+      margin-bottom: $main-size;
+      text-transform: uppercase;
+      display: none;
+      &.--show {
+        display: block;
+      }
+    }
+    .burger-btn {
+      display: none;
+      height: 12px;
+      width: 20px;
+      flex-direction: column;
+      justify-content: space-between;
+      span {
+        width: 100%;
+        height: 2px;
+        background-color: $main-text-color;
+      }
+      &.--open {
+        span:first-child {
+          transform: translate(0px, -2px) rotate(45deg);
+          transform-origin: top left;
+        }
+        span:nth-child(2) {
+          transform: scale(0, 1);
+        }
+        span:last-child {
+          transform: translate(0px, 2px) rotate(-45deg);
+          transform-origin: bottom left;
+        }
+      }
+      @media (max-width: 991.98px) {
+        display: flex;
+      }
+    }
   }
   .menu__collapse {
     position: relative;
@@ -65,6 +119,14 @@ nav {
       width: 50%;
       z-index: 10;
     }
+    // @media (max-width: 991.98px) {
+    //   position: fixed;
+    //   top: 0;
+    //   left: 0;
+    //   width: 100%;
+    //   height: 100%;
+    //   background-color: #ffffff;
+    // }
   }
 }
 

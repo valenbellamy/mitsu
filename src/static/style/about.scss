@@ -4,12 +4,12 @@
   p,
   span,
   li {
-    font-size: 1.5rem;
+    font-size: $main-size;
   }
 }
 
 .fs-lg {
-  font-size: 2rem !important;
+  font-size: $main-size !important;
 }
 
 .fs-xs {

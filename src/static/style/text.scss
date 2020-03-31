@@ -1,7 +1,7 @@
-:root {
-  --main-text-color: #000000;
-  --second-text-color: #d0d0d0;
-}
+// :root {
+//   --main-text-color: #000000;
+//   --second-text-color: #d0d0d0;
+// }
 
 p,
 a,
@@ -15,9 +15,10 @@ h5,
 h6,
 li {
   font-family: Maison;
-  color: var(--main-text-color);
-  font-size: 2rem;
-  line-height: 1.1;
+  color: $main-text-color;
+  font-size: $main-size;
+  line-height: 1.2;
+  letter-spacing: 0.02rem;
 }
 
 a,

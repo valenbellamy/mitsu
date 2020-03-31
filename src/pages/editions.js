@@ -8,7 +8,7 @@ const editions = () => {
   return (
     <Layout>
       <SEO title="Editions" />
-      <Menu showFilters={true} />
+      <Menu showFilters={true} showCart={true} />
       <div className="content">
         <Editions />
       </div>
