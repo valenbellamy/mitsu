@@ -91,13 +91,16 @@ const Carousel = ({ data, project, edition }) => {
       <div className="carousel__info">
         <div className="carousel__header">
           <div className="carousel__title">
-            <h2>titre</h2>
+            <h2>Client</h2>
             {project && (
               <>
+                <h3>titre</h3>
                 <ul>
                   <li>categorie 1,</li>
-                  <li>categorie 2</li>
+                  <li>categorie 2,</li>
+                  <li>art direction</li>
                 </ul>
+                <h3>année</h3>
               </>
             )}
           </div>
@@ -119,6 +122,9 @@ const Carousel = ({ data, project, edition }) => {
           </div>
         </div>
       </div> */}
+      <div className="title__md">
+        <h2>{project ? "projects" : "editions"}</h2>
+      </div>
     </div>
   )
 }

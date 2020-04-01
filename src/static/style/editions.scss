@@ -1,9 +1,15 @@
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 1fr;
   grid-gap: $main-size;
   height: 100%;
+  @media (max-width: 991.98px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 767.98px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .grid--editions {
@@ -13,10 +19,17 @@
       position: relative;
       background-color: #d0d0d0;
       height: 40vh;
+      max-height: 350px;
       margin-bottom: $main-size;
       display: flex;
       justify-content: center;
       align-items: center;
+      @media (max-width: 991.98px) {
+        max-height: 300px;
+      }
+      @media (max-width: 767.98px) {
+        max-height: 240px;
+      }
       .item__image {
         position: absolute;
         top: 50%;
@@ -70,5 +83,11 @@
         display: flex;
       }
     }
+  }
+  @media (max-width: 991.98px) {
+    margin-top: 4rem;
+  }
+  @media (max-width: 767.98px) {
+    margin-top: 6.4rem;
   }
 }

@@ -1,8 +1,35 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 
-const Menu = ({ showFilters, showCart }) => {
+const Menu = ({ showFilters, showProjects, showCart }) => {
+  const [open, setOpen] = useState(false)
+  const [showprojects, setShowprojects] = useState(false)
+  const [showeditions, setShoweditions] = useState(false)
+
+  useEffect(() => {
+    if (showProjects && window.innerWidth < 992) {
+      setShowprojects(true)
+    }
+    if (showFilters) {
+      setShoweditions(true)
+    }
+    console.log(window.innerWidth)
+  }, [])
+
+  useEffect(() => {
+    if (showFilters && window.innerWidth < 992) {
+      // if (showeditions) {
+      //   setShowprojects(false)
+      // }
+      if (showprojects) {
+        setShoweditions(false)
+      } else {
+        setShoweditions(true)
+      }
+    }
+  }, [showprojects])
+
   return (
     <nav>
       <div className="menu__top">
@@ -11,14 +38,17 @@ const Menu = ({ showFilters, showCart }) => {
             <h1>studio mitsu</h1>
           </Link>
           <div className={`cart ${showCart ? "--show" : ""}`}>cart</div>
-          <div className="burger-btn --open">
+          <div
+            className={`burger-btn ${open ? "--open" : ""}`}
+            onClick={() => setOpen(open => !open)}
+          >
             <span></span>
             <span></span>
             <span></span>
           </div>
         </div>
       </div>
-      <div className="menu__collapse">
+      <div className={`menu__collapse ${open ? "--visible" : ""}`}>
         <div className="menu__center">
           <ul>
             <li>
@@ -30,8 +60,12 @@ const Menu = ({ showFilters, showCart }) => {
           </ul>
         </div>
         <div className="menu__dropdown">
-          <div className="dropdown --special">
-            <span>projets</span>
+          <div className={`dropdown --special ${showprojects ? "--show" : ""}`}>
+            <span
+              onClick={() => setShowprojects(showprojects => !showprojects)}
+            >
+              projets
+            </span>
             <div className="dropdown__menu">
               <ul
                 className="menu__list --special-color dropdown__item"
@@ -115,12 +149,16 @@ const Menu = ({ showFilters, showCart }) => {
           </div>
           <div className="filters">
             <Link to="/editions">
-              <span>editions</span>
+              <span
+                onClick={() => setShoweditions(showeditions => !showeditions)}
+              >
+                editions
+              </span>
             </Link>
             {/* <div className="dropdown__menu"> */}
             <ul
               className={`filter-values menu__list ${
-                showFilters ? "--show" : ""
+                showeditions ? "--show" : ""
               }`}
             >
               <li>collection n°1</li>
@@ -138,11 +176,13 @@ const Menu = ({ showFilters, showCart }) => {
 
 Menu.defaultProps = {
   showFilters: false,
+  showProjects: false,
   showCart: false,
 }
 
 Menu.propTypes = {
   showFilters: PropTypes.bool,
+  showProjects: PropTypes.bool,
   showCart: PropTypes.bool,
 }
 

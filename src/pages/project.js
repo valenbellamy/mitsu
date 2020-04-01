@@ -9,7 +9,7 @@ const project = ({ data }) => {
   return (
     <Layout>
       <SEO title="Project" />
-      <Menu />
+      <Menu showProjects={true} />
       <div className="content">
         <Carousel data={data} project={true} />
       </div>

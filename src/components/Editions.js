@@ -164,6 +164,9 @@ const Editions = () => {
           </div>
         </div>
       </div>
+      <div className="title__md">
+        <h2>editions</h2>
+      </div>
     </div>
   )
 }
