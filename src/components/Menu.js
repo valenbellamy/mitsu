@@ -149,11 +149,7 @@ const Menu = ({ showFilters, showProjects, showCart }) => {
           </div>
           <div className="filters">
             <Link to="/editions">
-              <span
-                onClick={() => setShoweditions(showeditions => !showeditions)}
-              >
-                editions
-              </span>
+              <span>editions</span>
             </Link>
             {/* <div className="dropdown__menu"> */}
             <ul
