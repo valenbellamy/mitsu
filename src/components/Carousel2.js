@@ -1,14 +1,15 @@
 import React, { useState, useEffect, useLayoutEffect, useRef } from "react"
 import PropTypes from "prop-types"
 import Img from "gatsby-image"
-import Project from "./Project"
 import Edition from "./Edition"
 
-const Carousel = ({ data, project, edition }) => {
+const Carousel2 = ({ data, project, edition }) => {
   const [limit, setLimit] = useState(0)
   const [index, setIndex] = useState(0)
   const [height, setHeight] = useState(0)
   const ref = useRef(null)
+  console.log(data)
+  const medias = data.photo
 
   useEffect(() => {
     if (index === limit) {
@@ -20,36 +21,26 @@ const Carousel = ({ data, project, edition }) => {
   }, [index])
 
   useEffect(() => {
-    setLimit(5)
+    setLimit(medias.length)
   }, [])
 
   useLayoutEffect(() => {
-    setHeight(
-      ref.current.clientWidth / data.img1.childImageSharp.fluid.aspectRatio
-    )
+    setHeight(ref.current.clientWidth / medias[0].fluid.aspectRatio)
   }, [])
 
   return (
     <div className={`carousel ${edition ? "carousel--edition" : ""}`} ref={ref}>
       <div className="carousel__inner" style={{ height: height }}>
-        <div
-          className={`carousel__item ${index === 0 ? "active" : ""}`}
-          style={{ height: height }}
-        >
-          <Img
-            fluid={data.img1.childImageSharp.fluid}
-            alt="Picture of Valentin working"
-          />
-        </div>
-        <div
-          className={`carousel__item ${index === 1 ? "active" : ""}`}
-          style={{ height: height }}
-        >
-          <Img
-            fluid={data.img2.childImageSharp.fluid}
-            alt="Picture of Valentin working"
-          />
-        </div>
+        {medias.map((media, i) => (
+          <div
+            className={`carousel__item ${index === i ? "active" : ""}`}
+            style={{ height: height }}
+            key={media.id}
+          >
+            <Img fluid={media.fluid} alt={media.description} />
+          </div>
+        ))}
+
         <div
           className="carousel__control --prev"
           style={{ height: height }}
@@ -64,37 +55,31 @@ const Carousel = ({ data, project, edition }) => {
       <div className="carousel__info">
         <div className="carousel__header">
           <div className="carousel__title">
-            <h2>titre</h2>
-            {project && (
-              <>
-                <ul>
-                  <li>categorie 1,</li>
-                  <li>categorie 2</li>
-                </ul>
-              </>
-            )}
+            <h2>{data.titre}</h2>
           </div>
           <div>
             {index + 1}/{limit}
           </div>
         </div>
       </div>
-      {project && <Project />}
-      {edition && <Edition />}
+      <Edition data={data} />
+      <div className="title__md">
+        <h2>{project ? "projects" : "editions"}</h2>
+      </div>
     </div>
   )
 }
 
-Carousel.defaultProps = {
+Carousel2.defaultProps = {
   data: [],
   project: false,
   edition: false,
 }
 
-Carousel.propTypes = {
+Carousel2.propTypes = {
   data: PropTypes.object,
   project: PropTypes.bool,
   edition: PropTypes.bool,
 }
 
-export default Carousel
+export default Carousel2

@@ -5,6 +5,15 @@
   span,
   li {
     font-size: $main-size;
+    p {
+      margin-bottom: 0rem;
+    }
+  }
+  p {
+    margin-bottom: $main-size;
+  }
+  h2 {
+    margin-bottom: 0rem;
   }
   @media (max-width: 991.98px) {
     margin-left: 33vw;

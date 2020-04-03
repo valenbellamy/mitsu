@@ -1,11 +1,34 @@
 import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 
 const Menu = ({ showFilters, showProjects, showCart }) => {
   const [open, setOpen] = useState(false)
   const [showprojects, setShowprojects] = useState(false)
   const [showeditions, setShoweditions] = useState(false)
+
+  const data = useStaticQuery(graphql`
+    query {
+      allContentfulProjet(sort: { fields: createdAt, order: DESC }) {
+        edges {
+          node {
+            id
+            titre
+            slug
+            client
+          }
+        }
+      }
+      allContentfulCategorie {
+        edges {
+          node {
+            id
+            nom
+          }
+        }
+      }
+    }
+  `)
 
   useEffect(() => {
     if (showProjects && window.innerWidth < 992) {
@@ -14,7 +37,6 @@ const Menu = ({ showFilters, showProjects, showCart }) => {
     if (showFilters) {
       setShoweditions(true)
     }
-    console.log(window.innerWidth)
   }, [])
 
   useEffect(() => {
@@ -71,79 +93,20 @@ const Menu = ({ showFilters, showProjects, showCart }) => {
                 className="menu__list --special-color dropdown__item"
                 id="project__category"
               >
-                <li>
-                  <span>identity</span>
-                </li>
-                <li>
-                  <span>art direction</span>
-                </li>
-                <li>
-                  <span>editorial design</span>
-                </li>
-                <li>
-                  <span>graphic design</span>
-                </li>
-                <li>
-                  <span>digital design</span>
-                </li>
-                <li>
-                  <span>packaging</span>
-                </li>
-                <li>
-                  <span>scenography</span>
-                </li>
+                {data.allContentfulCategorie.edges.map(edge => (
+                  <li key={edge.node.id}>
+                    <span>{edge.node.nom}</span>
+                  </li>
+                ))}
               </ul>
               <ul className="menu__list dropdown__item">
-                <li>
-                  <Link to="/project">
-                    <span>labatut</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/project">
-                    <span>lv the book</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/project">
-                    <span>hobbies</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/project">
-                    <span>fleury-mérogis</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/project">
-                    <span>martin massé</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/project">
-                    <span>labatut</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/project">
-                    <span>lv the book</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/project">
-                    <span>hobbies</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/project">
-                    <span>fleury-mérogis</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/project">
-                    <span>martin massé</span>
-                  </Link>
-                </li>
+                {data.allContentfulProjet.edges.map((edge, i) => (
+                  <li key={edge.node.id}>
+                    <Link to={`/project/${edge.node.slug}`}>
+                      {edge.node.client}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
@@ -159,8 +122,10 @@ const Menu = ({ showFilters, showProjects, showCart }) => {
             >
               <li>collection n°1</li>
               <li>special editions</li>
-              <li>selected book</li>
               <li>all</li>
+              <li>
+                <Link to="/editions/about">about</Link>
+              </li>
             </ul>
             {/* </div> */}
           </div>

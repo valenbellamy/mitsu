@@ -10,6 +10,8 @@ const Carousel = ({ data, project, edition }) => {
   const [height, setHeight] = useState(0)
   const ref = useRef(null)
 
+  const medias = data.contentfulProjet.carousel
+
   useEffect(() => {
     if (index === limit) {
       setIndex(limit - 1)
@@ -20,63 +22,64 @@ const Carousel = ({ data, project, edition }) => {
   }, [index])
 
   useEffect(() => {
-    setLimit(5)
+    setLimit(data.contentfulProjet.carousel.length)
   }, [])
 
   useLayoutEffect(() => {
     setHeight(
-      ref.current.clientWidth / data.img1.childImageSharp.fluid.aspectRatio
+      ref.current.clientWidth /
+        data.contentfulProjet.carousel[0].media.fluid.aspectRatio
     )
   }, [])
 
   return (
     <div className={`carousel ${edition ? "carousel--edition" : ""}`} ref={ref}>
-      <div className="carousel__inner" style={{ height: height }}>
-        <div
-          className={`carousel__item ${index === 0 ? "active" : ""}`}
-          style={{ height: height }}
-        >
-          <Img
-            fluid={data.img1.childImageSharp.fluid}
-            alt="Picture of Valentin working"
-          />
-        </div>
-        <div
-          className={`carousel__item ${index === 1 ? "active" : ""}`}
-          style={{ height: height }}
-        >
-          <Img
-            fluid={data.img2.childImageSharp.fluid}
-            alt="Picture of Valentin working"
-          />
-        </div>
-        <div
-          className={`carousel__item ${index === 2 ? "active" : ""}`}
-          style={{ height: height }}
-        >
-          <Img
-            fluid={data.img3.childImageSharp.fluid}
-            alt="Picture of Valentin working"
-          />
-        </div>
-        <div
-          className={`carousel__item ${index === 3 ? "active" : ""}`}
-          style={{ height: height }}
-        >
-          <Img
-            fluid={data.img4.childImageSharp.fluid}
-            alt="Picture of Valentin working"
-          />
-        </div>
-        <div
-          className={`carousel__item ${index === 4 ? "active" : ""}`}
-          style={{ height: height }}
-        >
-          <Img
-            fluid={data.img5.childImageSharp.fluid}
-            alt="Picture of Valentin working"
-          />
-        </div>
+      <div className="carousel__inner">
+        {medias.map((media, i) => (
+          <div
+            className={`carousel__item ${index === i ? "active" : ""}`}
+            key={media.id}
+          >
+            <div className="item__inner" style={{ height: height }}>
+              {media.isVideo ? (
+                // <video playsInline loop controls autoPlay muted>
+                <video playsInline loop autoPlay muted>
+                  <source src={media.media.file.url} type="video/mp4" />
+                  {/* <p>
+                  Video could not be found.{" "}
+                  <a href="mailto:daan@devign.it">Please let me know</a>
+                </p> */}
+                </video>
+              ) : (
+                <Img fluid={media.media.fluid} alt={media.media.description} />
+              )}
+            </div>
+
+            <div className="carousel__info">
+              <div className="carousel__header">
+                <div className="carousel__title">
+                  <h2>{data.contentfulProjet.client}</h2>
+                  {project && (
+                    <>
+                      <h3>{media.titre}</h3>
+                      <ul>
+                        {media.categorie.map(cat => (
+                          <li key={cat.id}>{cat.nom}</li>
+                        ))}
+                      </ul>
+                      <h3>{media.date}</h3>
+                    </>
+                  )}
+                </div>
+                <div>
+                  {index + 1}/{limit}
+                </div>
+              </div>
+            </div>
+            <Project content={media.contenu} />
+          </div>
+        ))}
+
         <div
           className="carousel__control --prev"
           style={{ height: height }}
@@ -88,10 +91,10 @@ const Carousel = ({ data, project, edition }) => {
           onClick={() => setIndex(index => index + 1)}
         ></div>
       </div>
-      <div className="carousel__info">
+      {/* <div className="carousel__info">
         <div className="carousel__header">
           <div className="carousel__title">
-            <h2>Client</h2>
+            <h2>{data.contentfulProjet.client}</h2>
             {project && (
               <>
                 <h3>titre</h3>
@@ -110,18 +113,7 @@ const Carousel = ({ data, project, edition }) => {
         </div>
       </div>
       {project && <Project />}
-      {edition && <Edition />}
-      {/* <div>
-        <div className={open ? "project__text --open" : "project__text"}>
-          <span className="trigger" onClick={() => setOpen(open => !open)}>
-            {open ? "- less infos" : "+"}
-          </span>
-          <div>
-            Aenean ornare eros sed bibendum placerat. Proin faucibus iaculis
-            nibh in rhoncus. Morbi eu accumsan felis. Nam interdum lacus ante.
-          </div>
-        </div>
-      </div> */}
+      {edition && <Edition />} */}
       <div className="title__md">
         <h2>{project ? "projects" : "editions"}</h2>
       </div>

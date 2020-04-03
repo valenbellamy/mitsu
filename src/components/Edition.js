@@ -1,26 +1,24 @@
 import React from "react"
-import Img from "gatsby-image"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
-const Edition = () => {
+const Edition = ({ data }) => {
+  const { taille, prix, page, langue, date, copie, description } = data
+  console.log(taille)
   return (
     <div className="edition-detail">
       <div className="edition-detail__description">
-        Pellentesque habitant morbi tristique senectus et netus et malesuada
-        fames ac turpis egestas. Integer sed sapien at elit maximus porttitor.
-        Maecenas tincidunt, nisl non ullamcorper sollicitudin, lectus quam
-        tristique eros, nec fermentum urna justo at quam. Suspendisse congue
-        lacus nisi, eu vehicula magna finibus sit amet. Aliquam tempus mattis
-        pharetra. Maecenas gravida pellentesque purus in auctor. Aliquam in urna
-        lacus.
+        {documentToReactComponents(description.json)}
       </div>
       <div className="edition-detail__list">
-        <span>Pages</span>
-        <span>Taille</span>
-        <span>Date</span>
-        <span>Copies</span>
+        <span>{page}</span>
+        <span>{taille}</span>
+        <span>{date}</span>
+        <span>
+          {langue}, {copie}
+        </span>
       </div>
       <div className="edition-detail__footer">
-        <span className="edition-detail__price">€ 30</span>
+        <span className="edition-detail__price">€ {prix}</span>
       </div>
     </div>
   )
