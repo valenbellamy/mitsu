@@ -33,6 +33,7 @@ a > span {
   text-decoration: none;
   transition: color 0.3s;
   &:hover {
-    color: #6e3cfa;
+    //color: #6e3cfa;
+    color: $secondColor;
   }
 }

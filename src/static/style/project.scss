@@ -106,7 +106,8 @@
       text-transform: none;
     }
     a:hover {
-      color: #6e3cfa;
+      // color: #6e3cfa;
+      color: var(--colorHover);
     }
     // @media (max-width: 991.98px) {
     //   width: 75%;
@@ -117,7 +118,8 @@
   }
   &.--open {
     .trigger {
-      color: #6e3cfa;
+      //color: #6e3cfa;
+      color: var(--colorHover);
     }
     > div {
       z-index: 10;

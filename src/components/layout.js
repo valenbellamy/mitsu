@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
+import React, { useEffect } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -21,8 +21,33 @@ const Layout = ({ children }) => {
           title
         }
       }
+      contentfulVariableCouleur {
+        valeur
+      }
     }
   `)
+
+  useEffect(() => {
+    document.documentElement.style.setProperty(
+      "--colorHover",
+      `${data.contentfulVariableCouleur.valeur}`
+    )
+    const colors = hexToRgb(data.contentfulVariableCouleur.valeur)
+    document.documentElement.style.setProperty("--r", `${colors.r}`)
+    document.documentElement.style.setProperty("--g", `${colors.g}`)
+    document.documentElement.style.setProperty("--b", `${colors.b}`)
+  }, [])
+
+  const hexToRgb = hex => {
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
+    return result
+      ? {
+          r: parseInt(result[1], 16),
+          g: parseInt(result[2], 16),
+          b: parseInt(result[3], 16),
+        }
+      : null
+  }
 
   return (
     <>

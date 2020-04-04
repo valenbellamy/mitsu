@@ -21,7 +21,6 @@
       top: 0px;
       width: 50%;
       height: 100%;
-      background-color: blue;
       opacity: 0;
       transition: opacity 0.3s;
       cursor: pointer;
@@ -31,21 +30,33 @@
     }
     .--prev {
       left: 0px;
-      background: rgb(110, 60, 250);
+      background: rgb($rSecondColor, $gSecondColor, $bSecondColor);
       background: linear-gradient(
         270deg,
-        rgba(110, 60, 250, 0) 15%,
-        rgba(110, 60, 250, 1)
+        rgba($rSecondColor, $gSecondColor, $bSecondColor, 0) 15%,
+        rgba($rSecondColor, $gSecondColor, $bSecondColor, 1)
       );
+      // background: rgb(110, 60, 250);
+      // background: linear-gradient(
+      //   270deg,
+      //   rgba(110, 60, 250, 0) 15%,
+      //   rgba(110, 60, 250, 1)
+      // );
     }
     .--next {
       right: 0px;
-      background: rgb(110, 60, 250);
+      background: rgb($rSecondColor, $gSecondColor, $bSecondColor);
       background: linear-gradient(
         90deg,
-        rgba(110, 60, 250, 0) 15%,
-        rgba(110, 60, 250, 1)
+        rgba($rSecondColor, $gSecondColor, $bSecondColor, 0) 15%,
+        rgba($rSecondColor, $gSecondColor, $bSecondColor, 1)
       );
+      // background: rgb(110, 60, 250);
+      // background: linear-gradient(
+      //   90deg,
+      //   rgba(110, 60, 250, 0) 15%,
+      //   rgba(110, 60, 250, 1)
+      // );
     }
   }
   .carousel__info {
