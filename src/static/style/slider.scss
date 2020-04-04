@@ -1,9 +1,13 @@
 .sliderHome {
   display: flex;
   width: 50%;
-  height: calc(100vh - 3.8rem);
+  // height: calc(100vh - 3.8rem);
+  height: calc(100vh - 3.4rem);
   align-items: center;
   position: relative;
+  @media (max-width: 1199.98px) {
+    height: calc(100vh - 3rem);
+  }
   @media (max-width: 991.98px) {
     justify-content: center;
     width: 100%;

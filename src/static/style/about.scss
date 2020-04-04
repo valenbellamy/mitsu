@@ -4,13 +4,15 @@
   p,
   span,
   li {
-    font-size: $main-size;
     p {
       margin-bottom: 0rem;
     }
   }
   p {
     margin-bottom: $main-size;
+    @media (max-width: 1199.98px) {
+      margin-bottom: $main-size-sm;
+    }
   }
   h2 {
     margin-bottom: 0rem;

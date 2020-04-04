@@ -73,15 +73,22 @@
       justify-content: space-between;
       margin-top: $main-size;
       margin-bottom: $main-size;
+      @media (max-width: 1199.98px) {
+        margin-top: $main-size-sm;
+        margin-bottom: $main-size-sm;
+      }
       .carousel__title {
         display: flex;
         h2,
         h3 {
           margin-right: $main-size;
           text-transform: uppercase;
+          @media (max-width: 1199.98px) {
+            margin-right: $main-size-sm;
+          }
           @media (max-width: 767.98px) {
             margin-right: 0rem;
-            margin-bottom: $main-size;
+            margin-bottom: $main-size-sm;
             &:last-child {
               margin-bottom: 0rem;
             }
@@ -89,6 +96,9 @@
         }
         ul {
           margin-right: $main-size;
+          @media (max-width: 1199.98px) {
+            margin-right: $main-size-sm;
+          }
           li {
             display: inline-block;
             text-transform: uppercase;
@@ -96,7 +106,7 @@
           }
           @media (max-width: 767.98px) {
             margin-right: 0rem;
-            margin-bottom: $main-size;
+            margin-bottom: $main-size-sm;
           }
         }
         span {

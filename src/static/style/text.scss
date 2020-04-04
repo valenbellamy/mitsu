@@ -19,6 +19,9 @@ li {
   font-size: $main-size;
   line-height: 1.2;
   letter-spacing: 0.02rem;
+  @media (max-width: 1199.98px) {
+    font-size: $main-size-sm;
+  }
 }
 
 a,

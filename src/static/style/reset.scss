@@ -140,12 +140,14 @@ body {
   background-color: #fff;
   height: 100%;
   width: 100%;
-  padding: 20px;
+  padding: $main-size;
   -webkit-tap-highlight-color: transparent;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  //overflow: hidden;
+  @media (max-width: 1199.98px) {
+    padding: $main-size-sm;
+  }
 }
 
 #___gatsby,
@@ -155,9 +157,15 @@ main {
 }
 
 .mbm {
-  margin-bottom: 2rem;
+  margin-bottom: $main-size;
+  @media (max-width: 1199.98px) {
+    margin-bottom: $main-size-sm;
+  }
 }
 
 .mtm {
-  margin-top: 2rem;
+  margin-top: $main-size;
+  @media (max-width: 1199.98px) {
+    margin-top: $main-size-sm;
+  }
 }

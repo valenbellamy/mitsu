@@ -65,15 +65,22 @@
       justify-content: space-between;
       margin-top: $main-size;
       margin-bottom: $main-size;
+      @media (max-width: 1199.98px) {
+        margin-top: $main-size-sm;
+        margin-bottom: $main-size-sm;
+      }
       .carousel__title {
         display: flex;
         h2,
         h3 {
           margin-right: $main-size;
           text-transform: uppercase;
+          @media (max-width: 1199.98px) {
+            margin-right: $main-size-sm;
+          }
           @media (max-width: 767.98px) {
             margin-right: 0rem;
-            margin-bottom: $main-size;
+            margin-bottom: $main-size-sm;
             &:last-child {
               margin-bottom: 0rem;
             }
@@ -81,6 +88,9 @@
         }
         ul {
           margin-right: $main-size;
+          @media (max-width: 1199.98px) {
+            margin-right: $main-size-sm;
+          }
           li {
             display: inline-block;
             text-transform: uppercase;
@@ -88,7 +98,7 @@
           }
           @media (max-width: 767.98px) {
             margin-right: 0rem;
-            margin-bottom: $main-size;
+            margin-bottom: $main-size-sm;
           }
         }
         span {
@@ -126,7 +136,7 @@
 
 .title__md {
   position: fixed;
-  top: 2.2rem;
+  top: 1.8rem;
   right: 6rem;
   display: none;
   h2 {
@@ -139,10 +149,15 @@
 
 .edition-detail {
   margin-bottom: $main-size;
+  @media (max-width: 1199.98px) {
+    margin-bottom: $main-size-sm;
+  }
   .edition-detail__description {
     width: 80%;
     margin-bottom: $main-size;
-    //font-size: 1.5rem;
+    @media (max-width: 1199.98px) {
+      margin-bottom: $main-size-sm;
+    }
     @media (max-width: 991.98px) {
       width: 100%;
     }
@@ -150,9 +165,15 @@
   .edition-detail__list {
     display: flex;
     margin-bottom: $main-size;
+    @media (max-width: 1199.98px) {
+      margin-bottom: $main-size-sm;
+    }
     span {
       margin-right: $main-size;
       font-size: 1.5rem;
+      @media (max-width: 1199.98px) {
+        margin-right: $main-size-sm;
+      }
     }
   }
   .edition-detail__footer {

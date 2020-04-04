@@ -4,6 +4,9 @@
   grid-template-rows: 1fr;
   grid-gap: $main-size;
   height: 100%;
+  @media (max-width: 1199.98px) {
+    grid-gap: $main-size-sm;
+  }
   @media (max-width: 991.98px) {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -14,6 +17,9 @@
 
 .grid--editions {
   margin-bottom: $main-size;
+  @media (max-width: 1199.98px) {
+    margin-bottom: $main-size-sm;
+  }
   .item {
     .item__top {
       position: relative;
@@ -24,6 +30,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      @media (max-width: 1199.98px) {
+        margin-bottom: $main-size-sm;
+      }
       @media (max-width: 991.98px) {
         max-height: 300px;
       }
@@ -61,6 +70,9 @@
         //   rgba(110, 60, 250, 1)
         // );
         text-align: center;
+        @media (max-width: 1199.98px) {
+          padding-top: $main-size-sm;
+        }
         span {
           color: #fff;
         }
