@@ -239,12 +239,18 @@ nav {
     }
   }
   &.--show {
+    > span {
+      color: $secondColor;
+    }
     .dropdown__menu {
       display: flex;
     }
   }
   > span {
     cursor: pointer;
+  }
+  span.active {
+    color: $secondColor;
   }
   // > span {
   //   &:hover {

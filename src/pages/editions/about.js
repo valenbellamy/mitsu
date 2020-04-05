@@ -19,7 +19,7 @@ const About = ({ data }) => {
   return (
     <Layout>
       <SEO title="About editions" />
-      <Menu />
+      <Menu showFilters={true} showCart={true} />
       <div className="content">
         <div className="about">{documentToReactComponents(contenu.json)}</div>
       </div>

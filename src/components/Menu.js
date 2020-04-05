@@ -74,10 +74,14 @@ const Menu = ({ showFilters, showProjects, showCart }) => {
         <div className="menu__center">
           <ul>
             <li>
-              <Link to="/about">about</Link>
+              <Link to="/about" activeClassName="active">
+                about
+              </Link>
             </li>
             <li>
-              <Link to="/contact">contact</Link>
+              <Link to="/contact" activeClassName="active">
+                contact
+              </Link>
             </li>
           </ul>
         </div>
@@ -85,6 +89,7 @@ const Menu = ({ showFilters, showProjects, showCart }) => {
           <div className={`dropdown --special ${showprojects ? "--show" : ""}`}>
             <span
               onClick={() => setShowprojects(showprojects => !showprojects)}
+              className={showProjects ? "active" : ""}
             >
               projets
             </span>
@@ -111,7 +116,7 @@ const Menu = ({ showFilters, showProjects, showCart }) => {
             </div>
           </div>
           <div className="filters">
-            <Link to="/editions">
+            <Link to="/editions" className={showFilters ? "active" : ""}>
               <span>editions</span>
             </Link>
             {/* <div className="dropdown__menu"> */}
