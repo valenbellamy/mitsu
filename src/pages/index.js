@@ -4,7 +4,7 @@ import Slider from "../components/Slider"
 import SEO from "../components/seo"
 import Menu from "../components/Menu"
 
-const IndexPage = ({ data }) => {
+const IndexPage = () => {
   const [index, setIndex] = useState(null)
   function handleHover(value) {
     setIndex(value)

@@ -3,7 +3,6 @@ import PropTypes from "prop-types"
 import Img from "gatsby-image"
 import Project from "./Project"
 import { navigate } from "gatsby"
-import Edition from "./Edition"
 
 const Carousel = ({ data, project, prev, next }) => {
   const [limit, setLimit] = useState(0)

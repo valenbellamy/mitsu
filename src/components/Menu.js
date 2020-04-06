@@ -51,7 +51,7 @@ const Menu = ({ showFilters, showProjects, showCart, menuHover }) => {
     if (showFilters) {
       setShoweditions(true)
     }
-  }, [])
+  }, [showProjects, showFilters])
 
   useEffect(() => {
     if (showFilters && window.innerWidth < 992) {
@@ -61,7 +61,7 @@ const Menu = ({ showFilters, showProjects, showCart, menuHover }) => {
         setShoweditions(true)
       }
     }
-  }, [showprojects])
+  }, [showprojects, showFilters])
 
   const mouseEnter = index => {
     menuHover(index)
@@ -176,12 +176,14 @@ Menu.defaultProps = {
   showFilters: false,
   showProjects: false,
   showCart: false,
+  menuHover: () => {},
 }
 
 Menu.propTypes = {
   showFilters: PropTypes.bool,
   showProjects: PropTypes.bool,
   showCart: PropTypes.bool,
+  menuHover: PropTypes.func,
 }
 
 export default Menu
