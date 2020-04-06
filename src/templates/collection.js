@@ -5,8 +5,11 @@ import SEO from "../components/seo"
 import Menu from "../components/Menu"
 
 export const query = graphql`
-  query {
-    allContentfulEdition(sort: { fields: ordre, order: DESC }) {
+  query($nom: String!) {
+    allContentfulEdition(
+      filter: { collection: { nom: { eq: $nom } } }
+      sort: { fields: ordre, order: DESC }
+    ) {
       edges {
         node {
           id
@@ -29,7 +32,7 @@ export const query = graphql`
   }
 `
 
-const editions = ({ data }) => {
+const collection = ({ data }) => {
   return (
     <Layout>
       <SEO title="Editions" />
@@ -41,4 +44,4 @@ const editions = ({ data }) => {
   )
 }
 
-export default editions
+export default collection

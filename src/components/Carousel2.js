@@ -2,23 +2,37 @@ import React, { useState, useEffect, useLayoutEffect, useRef } from "react"
 import PropTypes from "prop-types"
 import Img from "gatsby-image"
 import Edition from "./Edition"
+import { navigate } from "gatsby"
 
-const Carousel2 = ({ data, project, edition }) => {
+const Carousel2 = ({ data, project, edition, prev, next }) => {
   const [limit, setLimit] = useState(0)
   const [index, setIndex] = useState(0)
   const [height, setHeight] = useState(0)
   const ref = useRef(null)
-  console.log(data)
   const medias = data.photo
 
-  useEffect(() => {
-    if (index === limit) {
-      setIndex(limit - 1)
+  // useEffect(() => {
+  //   if (index === limit) {
+  //     setIndex(limit - 1)
+  //   }
+  //   if (index < 0) {
+  //     setIndex(0)
+  //   }
+  // }, [index])
+
+  const prevClick = () => {
+    if (index === 0) {
+      navigate(`/edition/${prev}`)
     }
-    if (index < 0) {
-      setIndex(0)
+    setIndex(index => index - 1)
+  }
+
+  const nextClick = () => {
+    if (index === limit - 1) {
+      navigate(`/edition/${next}`)
     }
-  }, [index])
+    setIndex(index => index + 1)
+  }
 
   useEffect(() => {
     setLimit(medias.length)
@@ -44,12 +58,12 @@ const Carousel2 = ({ data, project, edition }) => {
         <div
           className="carousel__control --prev"
           style={{ height: height }}
-          onClick={() => setIndex(index => index - 1)}
+          onClick={prevClick}
         ></div>
         <div
           className="carousel__control --next"
           style={{ height: height }}
-          onClick={() => setIndex(index => index + 1)}
+          onClick={nextClick}
         ></div>
       </div>
       <div className="carousel__info">

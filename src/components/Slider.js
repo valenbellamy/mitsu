@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
-const Slider = () => {
+const Slider = ({ activeItem }) => {
   const [index, setIndex] = useState(0)
+  const [limit, setLimit] = useState(null)
 
   const data = useStaticQuery(graphql`
     query {
-      allContentfulProjet(sort: { fields: createdAt, order: DESC }) {
+      allContentfulProjet(sort: { fields: ordre, order: DESC }) {
         edges {
           node {
             couverture {
@@ -24,20 +25,40 @@ const Slider = () => {
   `)
 
   useEffect(() => {
-    const limit = data.allContentfulProjet.edges.length
-    //console.log(limit)
-    if (index === limit) {
-      setIndex(0)
+    setLimit(data.allContentfulProjet.edges.length)
+  }, [])
+
+  useEffect(() => {
+    if (activeItem !== null) {
+      setIndex(activeItem)
     }
-  }, [index])
+    // console.log("active item " + activeItem)
+    // console.log("index " + index)
+  }, [activeItem])
+
+  // useEffect(() => {
+  //   if (index === limit) {
+  //     setIndex(0)
+  //   }
+  // }, [index])
+
+  const increment = index => {
+    if (index === limit - 1) {
+      setIndex(0)
+    } else {
+      setIndex(index => index + 1)
+    }
+    // console.log("increment index " + index)
+  }
 
   return (
     <div className="sliderHome">
       {data.allContentfulProjet.edges.map((photo, i) => (
         <div
           className={`slide ${index === i ? "active" : ""}`}
-          onClick={() => setIndex(index => index + 1)}
+          // onClick={() => setIndex(index => index + 1)}
           key={photo.node.couverture.id}
+          onClick={() => increment(index)}
         >
           <Img
             fluid={photo.node.couverture.fluid}

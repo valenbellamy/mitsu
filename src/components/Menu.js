@@ -2,20 +2,25 @@ import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 import { Link, useStaticQuery, graphql } from "gatsby"
 
-const Menu = ({ showFilters, showProjects, showCart }) => {
+const Menu = ({ showFilters, showProjects, showCart, menuHover }) => {
   const [open, setOpen] = useState(false)
   const [showprojects, setShowprojects] = useState(false)
   const [showeditions, setShoweditions] = useState(false)
+  const [hover, setHover] = useState(null)
 
   const data = useStaticQuery(graphql`
     query {
-      allContentfulProjet(sort: { fields: createdAt, order: DESC }) {
+      allContentfulProjet(sort: { fields: ordre, order: DESC }) {
         edges {
           node {
             id
             titre
             slug
             client
+            categorie {
+              nom
+              id
+            }
           }
         }
       }
@@ -24,6 +29,15 @@ const Menu = ({ showFilters, showProjects, showCart }) => {
           node {
             id
             nom
+          }
+        }
+      }
+      allContentfulCollection {
+        edges {
+          node {
+            id
+            nom
+            slug
           }
         }
       }
@@ -41,9 +55,6 @@ const Menu = ({ showFilters, showProjects, showCart }) => {
 
   useEffect(() => {
     if (showFilters && window.innerWidth < 992) {
-      // if (showeditions) {
-      //   setShowprojects(false)
-      // }
       if (showprojects) {
         setShoweditions(false)
       } else {
@@ -51,6 +62,16 @@ const Menu = ({ showFilters, showProjects, showCart }) => {
       }
     }
   }, [showprojects])
+
+  const mouseEnter = index => {
+    menuHover(index)
+    setHover(index)
+  }
+
+  const mouseLeave = () => {
+    menuHover(null)
+    setHover(null)
+  }
 
   return (
     <nav>
@@ -107,7 +128,11 @@ const Menu = ({ showFilters, showProjects, showCart }) => {
               <ul className="menu__list dropdown__item">
                 {data.allContentfulProjet.edges.map((edge, i) => (
                   <li key={edge.node.id}>
-                    <Link to={`/project/${edge.node.slug}`}>
+                    <Link
+                      to={`/project/${edge.node.slug}`}
+                      onMouseEnter={() => mouseEnter(i)}
+                      onMouseLeave={() => mouseLeave}
+                    >
                       {edge.node.client}
                     </Link>
                   </li>
@@ -125,9 +150,16 @@ const Menu = ({ showFilters, showProjects, showCart }) => {
                 showeditions ? "--show" : ""
               }`}
             >
-              <li>collection n°1</li>
-              <li>special editions</li>
-              <li>all</li>
+              {data.allContentfulCollection.edges.map((edge, i) => (
+                <li key={edge.node.id}>
+                  <Link to={`/editions/${edge.node.slug}`}>
+                    {edge.node.nom}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link to="/editions">all</Link>
+              </li>
               <li>
                 <Link to="/editions/about">about</Link>
               </li>

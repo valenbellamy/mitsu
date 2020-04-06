@@ -3,7 +3,6 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 const Edition = ({ data }) => {
   const { taille, prix, page, langue, date, copie, description } = data
-  console.log(taille)
   return (
     <div className="edition-detail">
       <div className="edition-detail__description">

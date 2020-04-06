@@ -1,16 +1,21 @@
-import React from "react"
+import React, { useState } from "react"
 import Layout from "../components/layout"
 import Slider from "../components/Slider"
 import SEO from "../components/seo"
 import Menu from "../components/Menu"
 
 const IndexPage = ({ data }) => {
+  const [index, setIndex] = useState(null)
+  function handleHover(value) {
+    setIndex(value)
+    // console.log("index index " + index)
+  }
   return (
     <Layout>
       <SEO title="Accueil" />
-      <Menu />
+      <Menu menuHover={handleHover} />
       <div className="content">
-        <Slider />
+        <Slider activeItem={index} />
       </div>
     </Layout>
   )

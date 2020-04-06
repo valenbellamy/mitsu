@@ -3,7 +3,6 @@ import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 
 const Editions = ({ editions }) => {
-  console.log(editions)
   return (
     <div className="grid grid--editions">
       {editions.edges.map(edition => (
