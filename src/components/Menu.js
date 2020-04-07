@@ -2,7 +2,13 @@ import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 import { Link, useStaticQuery, graphql } from "gatsby"
 
-const Menu = ({ showFilters, showProjects, showCart, menuHover }) => {
+const Menu = ({
+  showFilters,
+  showProjects,
+  showCart,
+  menuHover,
+  bgResponsive,
+}) => {
   const [open, setOpen] = useState(false)
   const [showprojects, setShowprojects] = useState(false)
   const [showeditions, setShoweditions] = useState(false)
@@ -84,7 +90,7 @@ const Menu = ({ showFilters, showProjects, showCart, menuHover }) => {
 
   return (
     <nav>
-      <div className="menu__top">
+      <div className={`menu__top ${bgResponsive ? "--bg" : ""}`}>
         <div>
           <Link to="/">
             <h1>studio mitsu</h1>
@@ -203,6 +209,7 @@ Menu.defaultProps = {
   showProjects: false,
   showCart: false,
   menuHover: () => {},
+  bgResponsive: true,
 }
 
 Menu.propTypes = {
@@ -210,6 +217,7 @@ Menu.propTypes = {
   showProjects: PropTypes.bool,
   showCart: PropTypes.bool,
   menuHover: PropTypes.func,
+  bgResponsive: PropTypes.bool,
 }
 
 export default Menu

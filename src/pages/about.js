@@ -20,7 +20,7 @@ const About = ({ data }) => {
   return (
     <Layout>
       <SEO title="About" />
-      <Menu />
+      <Menu bgResponsive={false} />
       <div className="content">
         <div className="about">
           {/* <p className="mbm">

@@ -1,4 +1,5 @@
 .about {
+  position: relative;
   max-width: 350px;
   div,
   p,
@@ -18,12 +19,17 @@
     margin-bottom: 0rem;
   }
   @media (max-width: 991.98px) {
-    margin-left: 33vw;
+    margin-left: calc((100% / 3) - 0.1px);
   }
   @media (max-width: 767.98px) {
     margin-left: 0rem;
-    margin-top: 4rem;
+    margin-top: 3.5rem;
     width: 100%;
+  }
+  &.about--editions {
+    @media (max-width: 991.98px) {
+      margin-top: 6rem;
+    }
   }
 }
 

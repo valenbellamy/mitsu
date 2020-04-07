@@ -79,8 +79,13 @@ const Carousel = ({ data, project, prev, next }) => {
                     <>
                       <h3>{media.titre}</h3>
                       <ul>
-                        {media.categorie.map(cat => (
-                          <li key={cat.id}>{cat.nom}</li>
+                        {media.categorie.map((cat, indexMedia) => (
+                          <li key={cat.id}>
+                            {cat.nom +
+                              (indexMedia !== media.categorie.length - 1
+                                ? ", "
+                                : "")}
+                          </li>
                         ))}
                       </ul>
                       <h3>{media.date}</h3>
