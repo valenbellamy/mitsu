@@ -26,15 +26,18 @@ const Carousel = ({ data, project, prev, next }) => {
   const prevClick = () => {
     if (index === 0) {
       navigate(`/project/${prev}`)
+    } else {
+      setIndex(index => index - 1)
     }
-    setIndex(index => index - 1)
   }
 
   const nextClick = () => {
     if (index === limit - 1) {
       navigate(`/project/${next}`)
+    } else {
+      console.log("ici")
+      setIndex(index => index + 1)
     }
-    setIndex(index => index + 1)
   }
 
   useEffect(() => {

@@ -23,15 +23,17 @@ const Carousel2 = ({ data, project, edition, prev, next }) => {
   const prevClick = () => {
     if (index === 0) {
       navigate(`/edition/${prev}`)
+    } else {
+      setIndex(index => index - 1)
     }
-    setIndex(index => index - 1)
   }
 
   const nextClick = () => {
     if (index === limit - 1) {
       navigate(`/edition/${next}`)
+    } else {
+      setIndex(index => index + 1)
     }
-    setIndex(index => index + 1)
   }
 
   useEffect(() => {
