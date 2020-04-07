@@ -52,11 +52,11 @@ const Slider = ({ activeItem }) => {
   }
 
   return (
-    <div className="sliderHome" onClick={() => increment(index)}>
+    <div className="sliderHome">
       {data.allContentfulProjet.edges.map((photo, i) => (
         <div
           className={`slide ${index === i ? "active" : ""}`}
-          // onClick={() => setIndex(index => index + 1)}
+          onClick={() => increment(index)}
           key={photo.node.couverture.id}
         >
           <Img

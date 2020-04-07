@@ -6,7 +6,8 @@ const Menu = ({ showFilters, showProjects, showCart, menuHover }) => {
   const [open, setOpen] = useState(false)
   const [showprojects, setShowprojects] = useState(false)
   const [showeditions, setShoweditions] = useState(false)
-  const [hover, setHover] = useState(null)
+  const [cat, setCat] = useState(null)
+  const [project, setProject] = useState([])
 
   const data = useStaticQuery(graphql`
     query {
@@ -63,14 +64,22 @@ const Menu = ({ showFilters, showProjects, showCart, menuHover }) => {
     }
   }, [showprojects, showFilters])
 
-  const mouseEnter = index => {
+  const mouseEnterProject = index => {
     menuHover(index)
-    setHover(index)
+    setProject(data.allContentfulProjet.edges[index].node.categorie)
   }
 
-  const mouseLeave = () => {
+  const mouseLeaveProject = () => {
     menuHover(null)
-    setHover(null)
+    setProject([])
+  }
+
+  const mouseEnterCat = index => {
+    setCat(data.allContentfulCategorie.edges[index].node.nom)
+  }
+
+  const mouseLeaveCat = () => {
+    setCat(null)
   }
 
   return (
@@ -119,19 +128,38 @@ const Menu = ({ showFilters, showProjects, showCart, menuHover }) => {
                 className="menu__list --special-color dropdown__item"
                 id="project__category"
               >
-                {data.allContentfulCategorie.edges.map(edge => (
-                  <li key={edge.node.id}>
-                    <span>{edge.node.nom}</span>
+                {data.allContentfulCategorie.edges.map((edge, i) => (
+                  <li
+                    key={edge.node.id}
+                    className={
+                      project.some(e => e.nom === `${edge.node.nom}`)
+                        ? "--highlight"
+                        : ""
+                    }
+                  >
+                    <span
+                      onMouseEnter={() => mouseEnterCat(i)}
+                      onMouseLeave={mouseLeaveCat}
+                    >
+                      {edge.node.nom}
+                    </span>
                   </li>
                 ))}
               </ul>
               <ul className="menu__list dropdown__item">
                 {data.allContentfulProjet.edges.map((edge, i) => (
-                  <li key={edge.node.id}>
+                  <li
+                    key={edge.node.id}
+                    className={
+                      edge.node.categorie.some(e => e.nom === `${cat}`)
+                        ? "--highlight"
+                        : ""
+                    }
+                  >
                     <Link
                       to={`/project/${edge.node.slug}`}
-                      onMouseEnter={() => mouseEnter(i)}
-                      onMouseLeave={() => mouseLeave}
+                      onMouseEnter={() => mouseEnterProject(i)}
+                      onMouseLeave={mouseLeaveProject}
                     >
                       {edge.node.client}
                     </Link>
@@ -144,7 +172,6 @@ const Menu = ({ showFilters, showProjects, showCart, menuHover }) => {
             <Link to="/editions" className={showFilters ? "active" : ""}>
               <span>editions</span>
             </Link>
-            {/* <div className="dropdown__menu"> */}
             <ul
               className={`filter-values menu__list ${
                 showeditions ? "--show" : ""
@@ -164,7 +191,6 @@ const Menu = ({ showFilters, showProjects, showCart, menuHover }) => {
                 <Link to="/editions/about">about</Link>
               </li>
             </ul>
-            {/* </div> */}
           </div>
         </div>
       </div>

@@ -6,7 +6,7 @@ import Menu from "../components/Menu"
 
 const IndexPage = () => {
   const [index, setIndex] = useState(null)
-  function handleHover(value) {
+  const handleHover = value => {
     setIndex(value)
     // console.log("index index " + index)
   }
