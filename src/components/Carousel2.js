@@ -11,15 +11,6 @@ const Carousel2 = ({ data, project, edition, prev, next }) => {
   const ref = useRef(null)
   const medias = data.photo
 
-  // useEffect(() => {
-  //   if (index === limit) {
-  //     setIndex(limit - 1)
-  //   }
-  //   if (index < 0) {
-  //     setIndex(0)
-  //   }
-  // }, [index])
-
   const prevClick = () => {
     if (index === 0) {
       navigate(`/edition/${prev}`)

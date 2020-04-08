@@ -12,17 +12,6 @@ const Carousel = ({ data, project, prev, next }) => {
 
   const medias = data.contentfulProjet.carousel
 
-  // useEffect(() => {
-  //   if (index === limit) {
-  //     setIndex(limit - 1)
-  //     //navigate(`/project/${next}`)
-  //   }
-  //   if (index < 0) {
-  //     setIndex(0)
-  //     //navigate(`/project/${prev}`)
-  //   }
-  // }, [index])
-
   const prevClick = () => {
     if (index === 0) {
       navigate(`/project/${prev}`)
@@ -35,7 +24,6 @@ const Carousel = ({ data, project, prev, next }) => {
     if (index === limit - 1) {
       navigate(`/project/${next}`)
     } else {
-      console.log("ici")
       setIndex(index => index + 1)
     }
   }
@@ -77,10 +65,12 @@ const Carousel = ({ data, project, prev, next }) => {
             <div className="carousel__info">
               <div className="carousel__header">
                 <div className="carousel__title">
-                  <h2>{data.contentfulProjet.client}</h2>
                   {project && (
                     <>
-                      <h3>{media.titre}</h3>
+                      <div>
+                        <h2>{data.contentfulProjet.client}</h2>
+                        <h3>{media.titre}</h3>
+                      </div>
                       <ul>
                         {media.categorie.map((cat, indexMedia) => (
                           <li key={cat.id}>

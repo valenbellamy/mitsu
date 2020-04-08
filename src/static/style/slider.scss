@@ -1,10 +1,14 @@
 .sliderHome {
   display: flex;
   width: 50%;
-  // height: calc(100vh - 3.8rem);
   height: calc(100vh - 3.4rem);
   align-items: center;
   position: relative;
+  // position: fixed;
+  // top: $main-size;
+  // left: 0rem;
+  // width: 100%;
+  // justify-content: center;
   @media (max-width: 1199.98px) {
     height: calc(100vh - 3rem);
   }
@@ -14,6 +18,7 @@
   }
   .slide {
     width: 100%;
+    //width: 33%;
     height: auto;
     position: absolute;
     opacity: 0;

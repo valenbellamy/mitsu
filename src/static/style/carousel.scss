@@ -40,31 +40,26 @@
     .--prev {
       left: 0px;
       background: rgb($rSecondColor, $gSecondColor, $bSecondColor);
-      // background: linear-gradient(
-      //   270deg,
-      //   rgba(110, 60, 250, 0) 15%,
-      //   rgba(110, 60, 250, 1)
-      // );
       background: linear-gradient(
         270deg,
-        rgba($rSecondColor, $gSecondColor, $bSecondColor, 0) 15%,
+        rgba($rSecondColor, $gSecondColor, $bSecondColor, 0) 80%,
         rgba($rSecondColor, $gSecondColor, $bSecondColor, 1)
       );
+      @media (max-width: 767.98px) {
+        background: transparent;
+      }
     }
     .--next {
       right: 0px;
       background: rgb($rSecondColor, $gSecondColor, $bSecondColor);
       background: linear-gradient(
         90deg,
-        rgba($rSecondColor, $gSecondColor, $bSecondColor, 0) 15%,
+        rgba($rSecondColor, $gSecondColor, $bSecondColor, 0) 80%,
         rgba($rSecondColor, $gSecondColor, $bSecondColor, 1)
       );
-      // background: rgb(110, 60, 250);
-      // background: linear-gradient(
-      //   90deg,
-      //   rgba(110, 60, 250, 0) 15%,
-      //   rgba(110, 60, 250, 1)
-      // );
+      @media (max-width: 767.98px) {
+        background: transparent;
+      }
     }
   }
   .carousel__info {
@@ -79,21 +74,33 @@
       }
       .carousel__title {
         display: flex;
-        h2,
-        h3 {
-          margin-right: $main-size;
-          text-transform: uppercase;
-          @media (max-width: 1199.98px) {
-            margin-right: $main-size-sm;
-          }
+        > div {
+          display: flex;
+          justify-content: space-between;
           @media (max-width: 767.98px) {
-            margin-right: 0rem;
-            margin-bottom: $main-size-sm;
-            &:last-child {
-              margin-bottom: 0rem;
+            justify-content: flex-start;
+          }
+          h2,
+          h3 {
+            margin-right: $main-size;
+            text-transform: uppercase;
+            @media (max-width: 1199.98px) {
+              margin-right: $main-size-sm;
+            }
+            // @media (max-width: 767.98px) {
+            //   margin-right: 0.8rem;
+            //   &:last-child {
+            //     margin-bottom: 0rem;
+            //   }
+            // }
+          }
+          h2 {
+            @media (max-width: 767.98px) {
+              margin-right: 1.5rem;
             }
           }
         }
+
         ul {
           margin-right: $main-size;
           @media (max-width: 1199.98px) {
@@ -106,7 +113,7 @@
           }
           @media (max-width: 767.98px) {
             margin-right: 0rem;
-            margin-bottom: $main-size-sm;
+            //margin-bottom: $main-size-sm;
           }
         }
         span {

@@ -33,30 +33,24 @@
       background: rgb($rSecondColor, $gSecondColor, $bSecondColor);
       background: linear-gradient(
         270deg,
-        rgba($rSecondColor, $gSecondColor, $bSecondColor, 0) 15%,
+        rgba($rSecondColor, $gSecondColor, $bSecondColor, 0) 80%,
         rgba($rSecondColor, $gSecondColor, $bSecondColor, 1)
       );
-      // background: rgb(110, 60, 250);
-      // background: linear-gradient(
-      //   270deg,
-      //   rgba(110, 60, 250, 0) 15%,
-      //   rgba(110, 60, 250, 1)
-      // );
+      @media (max-width: 767.98px) {
+        background: transparent;
+      }
     }
     .--next {
       right: 0px;
       background: rgb($rSecondColor, $gSecondColor, $bSecondColor);
       background: linear-gradient(
         90deg,
-        rgba($rSecondColor, $gSecondColor, $bSecondColor, 0) 15%,
+        rgba($rSecondColor, $gSecondColor, $bSecondColor, 0) 80%,
         rgba($rSecondColor, $gSecondColor, $bSecondColor, 1)
       );
-      // background: rgb(110, 60, 250);
-      // background: linear-gradient(
-      //   90deg,
-      //   rgba(110, 60, 250, 0) 15%,
-      //   rgba(110, 60, 250, 1)
-      // );
+      @media (max-width: 767.98px) {
+        background: transparent;
+      }
     }
   }
   .carousel__info {
