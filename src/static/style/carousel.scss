@@ -42,7 +42,7 @@
       background: rgb($rSecondColor, $gSecondColor, $bSecondColor);
       background: linear-gradient(
         270deg,
-        rgba($rSecondColor, $gSecondColor, $bSecondColor, 0) 80%,
+        rgba($rSecondColor, $gSecondColor, $bSecondColor, 0) 90%,
         rgba($rSecondColor, $gSecondColor, $bSecondColor, 1)
       );
       @media (max-width: 767.98px) {
@@ -54,7 +54,7 @@
       background: rgb($rSecondColor, $gSecondColor, $bSecondColor);
       background: linear-gradient(
         90deg,
-        rgba($rSecondColor, $gSecondColor, $bSecondColor, 0) 80%,
+        rgba($rSecondColor, $gSecondColor, $bSecondColor, 0) 90%,
         rgba($rSecondColor, $gSecondColor, $bSecondColor, 1)
       );
       @media (max-width: 767.98px) {
@@ -82,7 +82,7 @@
           }
           h2,
           h3 {
-            margin-right: $main-size;
+            margin-right: 4rem;
             text-transform: uppercase;
             @media (max-width: 1199.98px) {
               margin-right: $main-size-sm;
@@ -102,7 +102,7 @@
         }
 
         ul {
-          margin-right: $main-size;
+          margin-right: 4rem;
           @media (max-width: 1199.98px) {
             margin-right: $main-size-sm;
           }
