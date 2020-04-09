@@ -175,6 +175,16 @@
   .edition-detail__footer {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+    .edition-detail__price {
+      margin-right: $main-size;
+      @media (max-width: 1199.98px) {
+        margin-right: $main-size-sm;
+      }
+    }
+    input[type="image"] {
+      height: 30px;
+    }
     @media (max-width: 991.98px) {
       margin-top: 10rem;
       justify-content: space-between;
