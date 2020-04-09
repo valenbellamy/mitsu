@@ -96,6 +96,26 @@
       > div {
         display: flex;
       }
+      .item__footer {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        @media (max-width: 1199.98px) {
+          justify-content: space-between;
+        }
+        form {
+          height: 25px;
+          input[type="image"] {
+            height: 25px;
+          }
+        }
+        .paypal__btn {
+          margin-left: 3rem;
+          @media (max-width: 1199.98px) {
+            margin-left: 0rem;
+          }
+        }
+      }
     }
   }
   @media (max-width: 991.98px) {

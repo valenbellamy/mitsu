@@ -21,6 +21,7 @@ export const query = graphql`
           date(locale: "")
           copie
           slug
+          paypalId
           couverture {
             description
             fluid {

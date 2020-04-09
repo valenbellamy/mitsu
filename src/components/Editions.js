@@ -1,8 +1,20 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
 const Editions = ({ editions }) => {
+  const paypalButton = useStaticQuery(graphql`
+    query {
+      contentfulImageBoutonPaypal {
+        id
+        bouton {
+          file {
+            url
+          }
+        }
+      }
+    }
+  `)
   return (
     <div className="grid grid--editions">
       {editions.edges.map(edition => (
@@ -27,8 +39,38 @@ const Editions = ({ editions }) => {
               <span className="item__copie">{edition.node.copie}</span>
               <span className="item__language">{edition.node.langue}</span>
             </div>
-            <div>
-              <span className="item__price">€ {edition.node.prix}</span>
+            <div className="item__footer">
+              <span>€ {edition.node.prix}</span>
+              {edition.node.paypalId && (
+                <div className="paypal__btn">
+                  <form
+                    action="https://www.paypal.com/cgi-bin/webscr"
+                    method="post"
+                    target="paypal"
+                  >
+                    <input type="hidden" name="cmd" value="_s-xclick" />
+                    <input
+                      type="hidden"
+                      name="hosted_button_id"
+                      value={`${edition.node.paypalId}`}
+                    />
+                    <input
+                      type="image"
+                      src={`${paypalButton.contentfulImageBoutonPaypal.bouton.file.url}`}
+                      border="0"
+                      name="submit"
+                      alt="PayPal - The safer, easier way to pay online!"
+                    />
+                    <img
+                      alt=""
+                      border="0"
+                      src="https://www.paypalobjects.com/fr_FR/i/scr/pixel.gif"
+                      width="1"
+                      height="1"
+                    />
+                  </form>
+                </div>
+              )}
             </div>
           </div>
         </div>
