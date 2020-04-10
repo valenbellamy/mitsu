@@ -1,6 +1,10 @@
 .about {
   position: relative;
   max-width: 350px;
+  margin-bottom: $main-size;
+  @media (max-width: 1199.98px) {
+    margin-bottom: $main-size-sm;
+  }
   div,
   p,
   span,
@@ -42,4 +46,15 @@
 
 .fs-xs {
   font-size: 1rem !important;
+}
+
+.mentions {
+  a,
+  p,
+  div,
+  span,
+  h2,
+  h3 {
+    font-size: 1rem !important;
+  }
 }

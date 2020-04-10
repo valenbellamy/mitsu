@@ -11,13 +11,16 @@ export const query = graphql`
       contenu {
         json
       }
+      mentions {
+        json
+      }
     }
   }
 `
 
 const About = ({ data }) => {
   const contenu = data.contentfulAbout.contenu
-
+  const mentions = data.contentfulAbout.mentions
   return (
     <Layout>
       <SEO title="About" />
@@ -25,10 +28,8 @@ const About = ({ data }) => {
       <div className="content">
         <div className="about">
           {documentToReactComponents(contenu.json)}
-          <div className="fs-xs">
-            <Link to="/mentions" className="fs-xs">
-              Copyright + Mentions
-            </Link>
+          <div className="mentions">
+            {documentToReactComponents(mentions.json)}
           </div>
         </div>
       </div>

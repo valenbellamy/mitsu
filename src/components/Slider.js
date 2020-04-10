@@ -28,8 +28,6 @@ const Slider = ({ activeItem }) => {
     }
   `)
 
-  console.log(data)
-
   useEffect(() => {
     setLimit(data.allContentfulProjet.edges.length)
   }, [])

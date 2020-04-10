@@ -28,7 +28,7 @@ export const query = graphql`
             ...GatsbyContentfulFluid
           }
         }
-        date(locale: "")
+        date
         contenu {
           json
         }

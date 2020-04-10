@@ -16,7 +16,7 @@ export const query = graphql`
       description {
         json
       }
-      date(locale: "")
+      date
       copie
       paypalId
       photo {
