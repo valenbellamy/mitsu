@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 import { Link, useStaticQuery, graphql } from "gatsby"
+import Cart from "./Cart"
 
 const Menu = ({
   showFilters,
@@ -95,7 +96,9 @@ const Menu = ({
           <Link to="/">
             <h1>studio mitsu</h1>
           </Link>
-          <div className={`cart ${showCart ? "--show" : ""}`}>cart</div>
+          <div className={`cart ${showCart ? "--show" : ""}`}>
+            <Cart />
+          </div>
           <div
             className={`burger-btn ${open ? "--open" : ""}`}
             onClick={() => setOpen(open => !open)}

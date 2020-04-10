@@ -99,12 +99,14 @@ const Carousel = ({ data, project, prev, next }) => {
           style={{ height: height }}
           onClick={prevClick}
           type="button"
+          name="previous"
         ></button>
         <button
           className="carousel__control --next"
           style={{ height: height }}
           onClick={nextClick}
           type="button"
+          name="next"
         ></button>
       </div>
       {/* <div className="carousel__info">

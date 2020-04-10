@@ -94,6 +94,18 @@ nav {
       margin-bottom: $main-size;
       text-transform: uppercase;
       display: none;
+      form {
+        height: 1.3rem;
+        @media (max-width: 1199.98px) {
+          height: 1.1rem;
+        }
+        @media (max-width: 767.98px) {
+          height: 1rem;
+        }
+        input[type="image"] {
+          height: 100%;
+        }
+      }
       @media (max-width: 1199.98px) {
         margin-bottom: $main-size-sm;
       }
