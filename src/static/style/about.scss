@@ -18,6 +18,9 @@
   h2 {
     margin-bottom: 0rem;
   }
+  a {
+    text-transform: inherit;
+  }
   @media (max-width: 991.98px) {
     margin-left: calc((100% / 3) - 0.1px);
   }

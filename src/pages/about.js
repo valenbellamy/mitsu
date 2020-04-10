@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Menu from "../components/Menu"
@@ -23,26 +23,12 @@ const About = ({ data }) => {
       <Menu bgResponsive={false} />
       <div className="content">
         <div className="about">
-          {/* <p className="mbm">
-            is a graphic design & art direction studio, founded by Louis Georget
-            & Louise de Montalembert. Bases in Paris
-          </p>
-          <p className="mbm">For any inquiries: contact (a) studiomitsu.com</p>
-          <div>SELECTED CLIENTS :</div>
-          <ul className="mbm">
-            <li>Louis Vuitton</li>
-            <li>Chanel</li>
-            <li>Labatut Paris</li>
-            <li>Louis Vuitton</li>
-            <li>Chanel</li>
-            <li>Labatut Paris</li>
-            <li>Louis Vuitton</li>
-            <li>Chanel</li>
-            <li>Labatut Paris</li>
-            <li>...</li>
-          </ul> */}
           {documentToReactComponents(contenu.json)}
-          <div className="fs-xs">Copyright + mentions</div>
+          <div className="fs-xs">
+            <Link to="/mentions" className="fs-xs">
+              Copyright + Mentions
+            </Link>
+          </div>
         </div>
       </div>
     </Layout>

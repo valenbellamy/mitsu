@@ -25,7 +25,6 @@ const Edition = ({ data }) => {
     description,
     paypalId,
   } = data
-  console.log(paypalButton.contentfulImageBoutonPaypal.bouton.file.url)
   return (
     <div className="edition-detail">
       <div className="edition-detail__description">

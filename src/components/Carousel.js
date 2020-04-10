@@ -94,16 +94,18 @@ const Carousel = ({ data, project, prev, next }) => {
           </div>
         ))}
 
-        <div
+        <button
           className="carousel__control --prev"
           style={{ height: height }}
           onClick={prevClick}
-        ></div>
-        <div
+          type="button"
+        ></button>
+        <button
           className="carousel__control --next"
           style={{ height: height }}
           onClick={nextClick}
-        ></div>
+          type="button"
+        ></button>
       </div>
       {/* <div className="carousel__info">
         <div className="carousel__header">

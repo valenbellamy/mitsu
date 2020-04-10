@@ -14,6 +14,10 @@ const Slider = ({ activeItem }) => {
             couverture {
               id
               description
+              file {
+                contentType
+                url
+              }
               fluid {
                 ...GatsbyContentfulFluid
               }
@@ -23,6 +27,8 @@ const Slider = ({ activeItem }) => {
       }
     }
   `)
+
+  console.log(data)
 
   useEffect(() => {
     setLimit(data.allContentfulProjet.edges.length)
@@ -59,10 +65,16 @@ const Slider = ({ activeItem }) => {
           key={photo.node.couverture.id}
           onClick={() => increment(index)}
         >
-          <Img
-            fluid={photo.node.couverture.fluid}
-            alt={photo.node.couverture.description}
-          />
+          {photo.node.couverture.file.contentType === "video/mp4" ? (
+            <video playsInline loop autoPlay muted>
+              <source src={photo.node.couverture.file.url} type="video/mp4" />
+            </video>
+          ) : (
+            <Img
+              fluid={photo.node.couverture.fluid}
+              alt={photo.node.couverture.description}
+            />
+          )}
         </div>
       ))}
     </div>

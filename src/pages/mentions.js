@@ -7,7 +7,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 export const query = graphql`
   query {
-    contentfulContact {
+    contentfulMentions {
       description {
         json
       }
@@ -15,8 +15,8 @@ export const query = graphql`
   }
 `
 
-const Contact = ({ data }) => {
-  const contenu = data.contentfulContact.description
+const Mentions = ({ data }) => {
+  const contenu = data.contentfulMentions.description
   return (
     <Layout>
       <SEO title="Contact" />
@@ -28,4 +28,4 @@ const Contact = ({ data }) => {
   )
 }
 
-export default Contact
+export default Mentions
