@@ -35,11 +35,17 @@ const Carousel = ({ data, project, prev, next }) => {
   }, [])
 
   useLayoutEffect(() => {
-    setHeight(
-      ref.current.clientWidth /
-        data.contentfulProjet.carousel[0].media.fluid.aspectRatio
-    )
+    for (var i = 0; i < data.contentfulProjet.carousel.length; i++) {
+      if (!data.contentfulProjet.carousel[i].isVideo) {
+        setHeight(
+          ref.current.clientWidth /
+            data.contentfulProjet.carousel[i].media.fluid.aspectRatio
+        )
+        break
+      }
+    }
   }, [])
+  //console.log(medias)
 
   return (
     <div className={`carousel`} ref={ref}>
@@ -69,25 +75,23 @@ const Carousel = ({ data, project, prev, next }) => {
             <div className="carousel__info">
               <div className="carousel__header">
                 <div className="carousel__title">
-                  {project && (
-                    <>
-                      <div>
-                        <h2>{data.contentfulProjet.client}</h2>
-                        <h3>{media.titre}</h3>
-                      </div>
-                      <ul>
-                        {media.categorie.map((cat, indexMedia) => (
-                          <li key={cat.id}>
-                            {cat.nom +
-                              (indexMedia !== media.categorie.length - 1
-                                ? ", "
-                                : "")}
-                          </li>
-                        ))}
-                      </ul>
-                      <h3>{media.date}</h3>
-                    </>
+                  <div>
+                    <h2>{data.contentfulProjet.client}</h2>
+                    {media.titre && <h3>{media.titre}</h3>}
+                  </div>
+                  {media.categorie && (
+                    <ul>
+                      {media.categorie.map((cat, indexMedia) => (
+                        <li key={cat.id}>
+                          {cat.nom +
+                            (indexMedia !== media.categorie.length - 1
+                              ? ", "
+                              : "")}
+                        </li>
+                      ))}
+                    </ul>
                   )}
+                  {media.titre && <h3>{media.date}</h3>}
                 </div>
                 <div>
                   {index + 1}/{limit}
