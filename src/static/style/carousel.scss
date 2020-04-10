@@ -13,8 +13,10 @@
       left: 0px;
       opacity: 0;
       transition: opacity 0.5s ease;
+      z-index: 0;
       &.active {
         opacity: 1;
+        z-index: 1;
       }
       .gatsby-image-wrapper {
         height: 100%;
@@ -33,6 +35,7 @@
       opacity: 0;
       transition: opacity 0.3s;
       cursor: pointer;
+      z-index: 2;
       &:hover {
         opacity: 1;
       }
