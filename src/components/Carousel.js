@@ -8,7 +8,6 @@ const Carousel = ({ data, project, prev, next }) => {
   const [limit, setLimit] = useState(0)
   const [index, setIndex] = useState(0)
   const [height, setHeight] = useState(0)
-  const [transition, setTransition] = useState(false)
   const ref = useRef(null)
 
   const medias = data.contentfulProjet.carousel
@@ -31,7 +30,6 @@ const Carousel = ({ data, project, prev, next }) => {
 
   useEffect(() => {
     setLimit(data.contentfulProjet.carousel.length)
-    setTransition(true)
   }, [])
 
   useLayoutEffect(() => {
@@ -48,9 +46,7 @@ const Carousel = ({ data, project, prev, next }) => {
 
   return (
     <div className={`carousel`} ref={ref}>
-      <div
-        className={`carousel__inner ${transition ? "--transition-over" : ""}`}
-      >
+      <div className="carousel__inner">
         {medias.map((media, i) => (
           <div
             className={`carousel__item ${index === i ? "active" : ""}`}
