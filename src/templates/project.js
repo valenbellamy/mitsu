@@ -25,7 +25,7 @@ export const query = graphql`
             url
           }
           fluid {
-            ...GatsbyContentfulFluid
+            ...GatsbyContentfulFluid_noBase64
           }
         }
         date
@@ -34,6 +34,9 @@ export const query = graphql`
         }
         isVideo
       }
+    }
+    contentfulVariableCouleur {
+      valeur
     }
   }
 `

@@ -45,7 +45,6 @@ const Carousel = ({ data, project, prev, next }) => {
       }
     }
   }, [])
-  //console.log(medias)
 
   return (
     <div className={`carousel`} ref={ref}>
@@ -59,16 +58,15 @@ const Carousel = ({ data, project, prev, next }) => {
           >
             <div className="item__inner" style={{ height: height }}>
               {media.isVideo ? (
-                // <video playsInline loop controls autoPlay muted>
                 <video playsInline loop autoPlay muted>
                   <source src={media.media.file.url} type="video/mp4" />
-                  {/* <p>
-                  Video could not be found.{" "}
-                  <a href="mailto:daan@devign.it">Please let me know</a>
-                </p> */}
                 </video>
               ) : (
-                <Img fluid={media.media.fluid} alt={media.media.description} />
+                <Img
+                  fluid={media.media.fluid}
+                  alt={media.media.description}
+                  backgroundColor={`${data.contentfulVariableCouleur.valeur}`}
+                />
               )}
             </div>
 

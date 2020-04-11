@@ -22,7 +22,7 @@ const Contact = ({ data }) => {
       <SEO title="Contact" />
       <Menu />
       <div className="content">
-        <div className="about">{documentToReactComponents(contenu.json)}</div>
+        <div className="contact">{documentToReactComponents(contenu.json)}</div>
       </div>
     </Layout>
   )

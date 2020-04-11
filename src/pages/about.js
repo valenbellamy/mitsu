@@ -4,6 +4,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Menu from "../components/Menu"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { INLINES } from "@contentful/rich-text-types"
 
 export const query = graphql`
   query {
@@ -21,15 +22,27 @@ export const query = graphql`
 const About = ({ data }) => {
   const contenu = data.contentfulAbout.contenu
   const mentions = data.contentfulAbout.mentions
+  const options = {
+    renderNode: {
+      [INLINES.HYPERLINK]: node => {
+        return (
+          <a href={node.data.uri} target="_blank" rel="noopener noreferrer">
+            {node.content[0].value}
+          </a>
+        )
+      },
+    },
+  }
+
   return (
     <Layout>
       <SEO title="About" />
       <Menu bgResponsive={false} />
       <div className="content">
         <div className="about">
-          {documentToReactComponents(contenu.json)}
+          {documentToReactComponents(contenu.json, options)}
           <div className="mentions">
-            {documentToReactComponents(mentions.json)}
+            {documentToReactComponents(mentions.json, options)}
           </div>
         </div>
       </div>
