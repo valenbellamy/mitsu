@@ -54,7 +54,13 @@ const Carousel = ({ data, project, prev, next }) => {
           >
             <div className="item__inner" style={{ height: height }}>
               {media.isVideo ? (
-                <video playsInline loop autoPlay muted>
+                <video
+                  playsInline
+                  loop
+                  autoPlay
+                  muted
+                  poster={data.contentfulVideoPlaceholder.image.file.url}
+                >
                   <source src={media.media.file.url} type="video/mp4" />
                 </video>
               ) : (
@@ -101,14 +107,14 @@ const Carousel = ({ data, project, prev, next }) => {
           style={{ height: height }}
           onClick={prevClick}
           type="button"
-          name="previous"
+          aria-label="previous"
         ></button>
         <button
           className="carousel__control --next"
           style={{ height: height }}
           onClick={nextClick}
           type="button"
-          name="next"
+          aria-label="next"
         ></button>
       </div>
       {/* <div className="carousel__info">

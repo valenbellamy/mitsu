@@ -53,14 +53,14 @@ const Carousel2 = ({ data, project, edition, prev, next }) => {
           style={{ height: height }}
           onClick={prevClick}
           type="button"
-          name="previous"
+          aria-label="previous"
         ></button>
         <button
           className="carousel__control --next"
           style={{ height: height }}
           onClick={nextClick}
           type="button"
-          name="next"
+          aria-label="next"
         ></button>
       </div>
       <div className="carousel__info">

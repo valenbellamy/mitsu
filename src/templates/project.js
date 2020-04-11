@@ -35,6 +35,13 @@ export const query = graphql`
         isVideo
       }
     }
+    contentfulVideoPlaceholder {
+      image {
+        file {
+          url
+        }
+      }
+    }
     contentfulVariableCouleur {
       valeur
     }
