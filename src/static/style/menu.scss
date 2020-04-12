@@ -70,6 +70,7 @@ nav {
     width: 50%;
     //height: 35%;
     height: 275px;
+    z-index: 10;
     > div {
       display: flex;
       flex-direction: column;
@@ -137,6 +138,7 @@ nav {
     position: absolute;
     top: 250px;
     left: 0rem;
+    z-index: 11;
     form {
       height: 1.3rem;
       @media (max-width: 1199.98px) {
@@ -153,11 +155,7 @@ nav {
     &.--show {
       display: block;
     }
-    @media (max-width: 1199.98px) {
-      margin-bottom: $main-size-sm;
-    }
     @media (max-width: 991.98px) {
-      margin-bottom: 0rem;
       position: absolute;
       top: 1.8rem;
       left: calc(3.8rem + (100% / 3 - 3rem));

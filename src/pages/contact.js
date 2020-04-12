@@ -17,7 +17,6 @@ export const query = graphql`
 
 const Contact = ({ data }) => {
   const contenu = data.contentfulContact.description
-  console.log(contenu)
   return (
     <Layout>
       <SEO title="Contact" />
