@@ -41,9 +41,11 @@ const About = ({ data }) => {
       <div className="content">
         <div className="about">
           {documentToReactComponents(contenu.json, options)}
-          <div className="mentions">
-            {documentToReactComponents(mentions.json, options)}
-          </div>
+          {mentions && (
+            <div className="mentions">
+              {documentToReactComponents(mentions.json, options)}
+            </div>
+          )}
         </div>
       </div>
     </Layout>

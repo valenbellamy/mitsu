@@ -32,8 +32,14 @@ const Carousel2 = ({ data, project, edition, prev, next }) => {
   }, [])
 
   useLayoutEffect(() => {
-    setHeight(ref.current.clientWidth / medias[0].fluid.aspectRatio)
+    computeHeight()
+    window.addEventListener("resize", computeHeight)
+    return () => window.removeEventListener("resize", computeHeight)
   }, [])
+
+  const computeHeight = () => {
+    setHeight(ref.current.clientWidth / medias[0].fluid.aspectRatio)
+  }
 
   return (
     <div className={`carousel ${edition ? "carousel--edition" : ""}`} ref={ref}>

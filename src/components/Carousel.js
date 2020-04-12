@@ -33,6 +33,12 @@ const Carousel = ({ data, project, prev, next }) => {
   }, [])
 
   useLayoutEffect(() => {
+    computeHeight()
+    window.addEventListener("resize", computeHeight)
+    return () => window.removeEventListener("resize", computeHeight)
+  }, [])
+
+  const computeHeight = () => {
     for (var i = 0; i < data.contentfulProjet.carousel.length; i++) {
       if (!data.contentfulProjet.carousel[i].isVideo) {
         setHeight(
@@ -42,7 +48,7 @@ const Carousel = ({ data, project, prev, next }) => {
         break
       }
     }
-  }, [])
+  }
 
   return (
     <div className={`carousel`} ref={ref}>
@@ -57,7 +63,7 @@ const Carousel = ({ data, project, prev, next }) => {
                 <video
                   playsInline
                   loop
-                  controls
+                  autoPlay
                   muted
                   poster={data.contentfulVideoPlaceholder.image.file.url}
                 >
@@ -76,7 +82,7 @@ const Carousel = ({ data, project, prev, next }) => {
               <div className="carousel__header">
                 <div className="carousel__title">
                   <div>
-                    <h2>{data.contentfulProjet.client}</h2>
+                    <h2>{data.contentfulProjet.titre}</h2>
                     {media.titre && <h3>{media.titre}</h3>}
                   </div>
                   {media.categorie && (
@@ -91,14 +97,14 @@ const Carousel = ({ data, project, prev, next }) => {
                       ))}
                     </ul>
                   )}
-                  {media.titre && <h3>{media.date}</h3>}
+                  {media.date && <h3>{media.date}</h3>}
                 </div>
                 <div>
                   {index + 1}/{limit}
                 </div>
               </div>
             </div>
-            <Project content={media.contenu} />
+            {media.contenu && <Project content={media.contenu} />}
           </div>
         ))}
 

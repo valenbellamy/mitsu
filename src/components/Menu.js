@@ -96,9 +96,7 @@ const Menu = ({
           <Link to="/">
             <h1>studio mitsu</h1>
           </Link>
-          <div className={`cart ${showCart ? "--show" : ""}`}>
-            <Cart />
-          </div>
+
           <div
             className={`burger-btn ${open ? "--open" : ""}`}
             onClick={() => setOpen(open => !open)}
@@ -108,6 +106,9 @@ const Menu = ({
             <span></span>
           </div>
         </div>
+      </div>
+      <div className={`cart ${showCart ? "--show" : ""}`}>
+        <Cart />
       </div>
       <div className={`menu__collapse ${open ? "--visible" : ""}`}>
         <div className="menu__center">

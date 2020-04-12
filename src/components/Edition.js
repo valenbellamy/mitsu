@@ -27,19 +27,29 @@ const Edition = ({ data }) => {
   } = data
   return (
     <div className="edition-detail">
-      <div className="edition-detail__description">
-        {documentToReactComponents(description.json)}
-      </div>
+      {description && (
+        <div className="edition-detail__description">
+          {documentToReactComponents(description.json)}
+        </div>
+      )}
+
       <div className="edition-detail__list">
-        <span>{page}</span>
-        <span>{taille}</span>
-        <span>{date}</span>
+        {page && <span>{page}</span>}
+
+        {taille && <span>{taille}</span>}
+        {date && <span>{date}</span>}
         <span>
-          {langue}, {copie}
+          {langue && (
+            <>
+              {langue}
+              {", "}
+            </>
+          )}
+          {copie && <>{copie}</>}
         </span>
       </div>
       <div className="edition-detail__footer">
-        <span className="edition-detail__price">€ {prix}</span>
+        {prix && <span className="edition-detail__price">€ {prix}</span>}
         {paypalId && (
           <div className="paypal__btn">
             <form

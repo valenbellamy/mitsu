@@ -33,14 +33,24 @@ const Editions = ({ editions }) => {
           <div className="item__content">
             <h2>{edition.node.titre}</h2>
             <p>
-              {edition.node.introduction}, {edition.node.date}
+              {edition.node.introduction && (
+                <>
+                  {edition.node.introduction}
+                  {", "}
+                </>
+              )}
+              {edition.node.date && <>{edition.node.date}</>}
             </p>
             <div className="mbm">
-              <span className="item__copie">{edition.node.copie}</span>
-              <span className="item__language">{edition.node.langue}</span>
+              {edition.node.copie && (
+                <span className="item__copie">{edition.node.copie}</span>
+              )}
+              {edition.node.langue && (
+                <span className="item__language">{edition.node.langue}</span>
+              )}
             </div>
             <div className="item__footer">
-              <span>€ {edition.node.prix}</span>
+              {edition.node.prix && <span>€ {edition.node.prix}</span>}
               {edition.node.paypalId && (
                 <div className="paypal__btn">
                   <form
