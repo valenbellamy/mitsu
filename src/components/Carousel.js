@@ -57,7 +57,7 @@ const Carousel = ({ data, project, prev, next }) => {
                 <video
                   playsInline
                   loop
-                  autoPlay
+                  controls
                   muted
                   poster={data.contentfulVideoPlaceholder.image.file.url}
                 >
