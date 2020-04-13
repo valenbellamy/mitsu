@@ -9,7 +9,7 @@ const Carousel = ({ data, project, prev, next }) => {
   const [limit, setLimit] = useState(0)
   const [index, setIndex] = useState(0)
   const [height, setHeight] = useState(0)
-  const [width, setWidth] = useState(window.innerWidth)
+  const [width, setWidth] = useState(0)
   const ref = useRef(null)
 
   const medias = data.contentfulProjet.carousel
@@ -58,6 +58,7 @@ const Carousel = ({ data, project, prev, next }) => {
 
   useEffect(() => {
     setLimit(data.contentfulProjet.carousel.length)
+    setWidth(window.innerWidth)
   }, [])
 
   useLayoutEffect(() => {
