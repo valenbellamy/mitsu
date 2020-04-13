@@ -106,7 +106,6 @@ const Carousel = ({ data, project, prev, next }) => {
                       muted
                       autoplay
                       poster={data.contentfulVideoPlaceholder.image.file.url}
-                      ref={videoref}
                     >
                       <source src={media.media.file.url} type="video/mp4" />
                     </video>
