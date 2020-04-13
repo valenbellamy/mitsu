@@ -41,7 +41,7 @@ const Carousel = ({ data, project, prev, next }) => {
     }) => {
       // position will either be -1, 0 or 1
 
-      // const dir = directionX < 0 ? -1 : 1
+      const dir = directionX < 0 ? -1 : 1
       // console.log({ swipeX, dragging, dir })
       if (tap && initialX > width / 2 && elapsedTime > 0) {
         nextClick()
@@ -49,10 +49,10 @@ const Carousel = ({ data, project, prev, next }) => {
       if (tap && initialX < width / 2 && elapsedTime > 0) {
         prevClick()
       }
-      if (!dragging && swipeX === -1) {
+      if (!dragging && dir === -1) {
         prevClick()
       }
-      if (!dragging && swipeX === 1) {
+      if (!dragging && dir === 1) {
         nextClick()
       }
     },
