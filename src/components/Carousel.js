@@ -12,6 +12,7 @@ const Carousel = ({ data, project, prev, next }) => {
   const [width, setWidth] = useState(0)
   const [transition, setTransition] = useState(false)
   const ref = useRef(null)
+  const videoref = useRef(null)
 
   const medias = data.contentfulProjet.carousel
 
@@ -98,15 +99,17 @@ const Carousel = ({ data, project, prev, next }) => {
             >
               <div className="item__inner" style={{ height: height }}>
                 {media.isVideo ? (
-                  <video
-                    playsInline
-                    loop
-                    autoPlay
-                    muted
-                    poster={data.contentfulVideoPlaceholder.image.file.url}
-                  >
-                    <source src={media.media.file.url} type="video/mp4" />
-                  </video>
+                  <>
+                    <video
+                      playsInline
+                      loop
+                      muted
+                      poster={data.contentfulVideoPlaceholder.image.file.url}
+                      ref={videoref}
+                    >
+                      <source src={media.media.file.url} type="video/mp4" />
+                    </video>
+                  </>
                 ) : (
                   <Img
                     fluid={media.media.fluid}
@@ -167,6 +170,12 @@ const Carousel = ({ data, project, prev, next }) => {
             type="button"
             aria-label="swipe"
           ></button>
+          <div
+            className="btn__video"
+            onClick={() => {
+              videoref.current.play()
+            }}
+          ></div>
         </div>
       </div>
       <div className="title__md">
