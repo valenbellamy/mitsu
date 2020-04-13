@@ -40,6 +40,9 @@ const Carousel = ({ data, project, prev, next }) => {
       elapsedTime,
     }) => {
       // position will either be -1, 0 or 1
+
+      // const dir = directionX < 0 ? -1 : 1
+      // console.log({ swipeX, dragging, dir })
       if (tap && initialX > width / 2 && elapsedTime > 0) {
         nextClick()
       }
@@ -53,7 +56,7 @@ const Carousel = ({ data, project, prev, next }) => {
         nextClick()
       }
     },
-    { filterTaps: true, lockDirection: true }
+    { filterTaps: true, lockDirection: true, swipeVelocity: [0.1, 0.1] }
   )
 
   useEffect(() => {
