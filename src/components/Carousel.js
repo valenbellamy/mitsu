@@ -12,7 +12,7 @@ const Carousel = ({ data, project, prev, next }) => {
   const [width, setWidth] = useState(0)
   const [transition, setTransition] = useState(false)
   const ref = useRef(null)
-  const videoref = useRef(null)
+  // const videoref = useRef(null)
 
   const medias = data.contentfulProjet.carousel
 
@@ -104,6 +104,7 @@ const Carousel = ({ data, project, prev, next }) => {
                       playsInline
                       loop
                       muted
+                      autoplay
                       poster={data.contentfulVideoPlaceholder.image.file.url}
                       ref={videoref}
                     >
@@ -170,12 +171,12 @@ const Carousel = ({ data, project, prev, next }) => {
             type="button"
             aria-label="swipe"
           ></button>
-          <div
+          {/* <div
             className="btn__video"
             onClick={() => {
               videoref.current.play()
             }}
-          ></div>
+          ></div> */}
         </div>
       </div>
       <div className="title__md">
