@@ -9,6 +9,7 @@ const Carousel = ({ data, project, prev, next }) => {
   const [limit, setLimit] = useState(0)
   const [index, setIndex] = useState(0)
   const [height, setHeight] = useState(0)
+  const [width, setWidth] = useState(window.innerWidth)
   const ref = useRef(null)
 
   const medias = data.contentfulProjet.carousel
@@ -29,16 +30,31 @@ const Carousel = ({ data, project, prev, next }) => {
     }
   }
 
-  const bind = useDrag(({ swipe: [swipeX] }) => {
-    // position will either be -1, 0 or 1
-    console.log(swipeX)
-    if (swipeX === 1) {
-      nextClick()
-    }
-    if (swipeX === -1) {
-      prevClick()
-    }
-  })
+  const bind = useDrag(
+    ({
+      //swipe: [swipeX],
+      tap,
+      direction: [directionX],
+      initial: [initialX],
+      dragging,
+      elapsedTime,
+    }) => {
+      // position will either be -1, 0 or 1
+      if (tap && initialX > width / 2 && elapsedTime > 0) {
+        nextClick()
+      }
+      if (tap && initialX < width / 2 && elapsedTime > 0) {
+        prevClick()
+      }
+      if (!dragging && directionX === -1) {
+        prevClick()
+      }
+      if (!dragging && directionX === 1) {
+        nextClick()
+      }
+    },
+    { filterTaps: true }
+  )
 
   useEffect(() => {
     setLimit(data.contentfulProjet.carousel.length)
@@ -126,7 +142,6 @@ const Carousel = ({ data, project, prev, next }) => {
           onClick={prevClick}
           type="button"
           aria-label="previous"
-          {...bind()}
         ></button>
         <button
           className="carousel__control --next"
@@ -134,6 +149,13 @@ const Carousel = ({ data, project, prev, next }) => {
           onClick={nextClick}
           type="button"
           aria-label="next"
+        ></button>
+        <button
+          className="carousel__control --swipe"
+          style={{ height: height }}
+          {...bind()}
+          type="button"
+          aria-label="swipe"
         ></button>
       </div>
       {/* <div className="carousel__info">

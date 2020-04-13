@@ -65,7 +65,7 @@
       }
       @media (max-width: 767.98px) {
         background: transparent;
-        width: 100%;
+        display: none;
       }
     }
     .--next {
@@ -83,6 +83,19 @@
       @media (max-width: 767.98px) {
         background: transparent;
         display: none;
+      }
+    }
+    .--swipe {
+      display: none;
+      width: 0%;
+      border: none;
+      background: none;
+      &:focus {
+        outline: 0;
+      }
+      @media (max-width: 767.98px) {
+        display: block;
+        width: 100%;
       }
     }
   }
