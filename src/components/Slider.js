@@ -54,8 +54,6 @@ const Slider = ({ activeItem }) => {
     }
   }
 
-  console.log(data.allContentfulProjet)
-
   return (
     <div className="sliderHome">
       {data.allContentfulProjet.edges.map((photo, i) => (
