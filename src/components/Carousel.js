@@ -32,7 +32,7 @@ const Carousel = ({ data, project, prev, next }) => {
 
   const bind = useDrag(
     ({
-      //swipe: [swipeX],
+      swipe: [swipeX],
       tap,
       direction: [directionX],
       initial: [initialX],
@@ -46,14 +46,14 @@ const Carousel = ({ data, project, prev, next }) => {
       if (tap && initialX < width / 2 && elapsedTime > 0) {
         prevClick()
       }
-      if (!dragging && directionX === -1) {
+      if (!dragging && swipeX === -1) {
         prevClick()
       }
-      if (!dragging && directionX === 1) {
+      if (!dragging && swipeX === 1) {
         nextClick()
       }
     },
-    { filterTaps: true }
+    { filterTaps: true, lockDirection: true }
   )
 
   useEffect(() => {
