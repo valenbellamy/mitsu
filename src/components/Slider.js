@@ -52,8 +52,9 @@ const Slider = ({ activeItem }) => {
     } else {
       setIndex(index => index + 1)
     }
-    // console.log("increment index " + index)
   }
+
+  console.log(data.allContentfulProjet)
 
   return (
     <div className="sliderHome">
@@ -63,9 +64,12 @@ const Slider = ({ activeItem }) => {
           key={photo.node.couverture.id}
           onClick={() => increment(index)}
         >
-          {photo.node.couverture.file.contentType === "video/mp4" ? (
+          {photo.node.couverture.file.contentType.includes("video") ? (
             <video playsInline loop autoPlay muted>
-              <source src={photo.node.couverture.file.url} type="video/mp4" />
+              <source
+                src={photo.node.couverture.file.url}
+                type={photo.node.couverture.file.contentType}
+              />
             </video>
           ) : (
             <Img
