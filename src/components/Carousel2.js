@@ -8,6 +8,7 @@ const Carousel2 = ({ data, project, edition, prev, next }) => {
   const [limit, setLimit] = useState(0)
   const [index, setIndex] = useState(0)
   const [height, setHeight] = useState(0)
+  const [transition, setTransition] = useState(false)
   const ref = useRef(null)
   const medias = data.photo
 
@@ -29,6 +30,7 @@ const Carousel2 = ({ data, project, edition, prev, next }) => {
 
   useEffect(() => {
     setLimit(medias.length)
+    setTransition(true)
   }, [])
 
   useLayoutEffect(() => {
@@ -42,48 +44,55 @@ const Carousel2 = ({ data, project, edition, prev, next }) => {
   }
 
   return (
-    <div className={`carousel ${edition ? "carousel--edition" : ""}`} ref={ref}>
-      <div className="carousel__inner" style={{ height: height }}>
-        {medias.map((media, i) => (
-          <div
-            className={`carousel__item ${index === i ? "active" : ""}`}
-            style={{ height: height }}
-            key={media.id}
-          >
-            <Img fluid={media.fluid} alt={media.description} />
-          </div>
-        ))}
+    <>
+      <div
+        className={`carousel ${edition ? "carousel--edition" : ""} ${
+          transition ? "--transition-over" : ""
+        }`}
+        ref={ref}
+      >
+        <div className="carousel__inner" style={{ height: height }}>
+          {medias.map((media, i) => (
+            <div
+              className={`carousel__item ${index === i ? "active" : ""}`}
+              style={{ height: height }}
+              key={media.id}
+            >
+              <Img fluid={media.fluid} alt={media.description} />
+            </div>
+          ))}
 
-        <button
-          className="carousel__control --prev"
-          style={{ height: height }}
-          onClick={prevClick}
-          type="button"
-          aria-label="previous"
-        ></button>
-        <button
-          className="carousel__control --next"
-          style={{ height: height }}
-          onClick={nextClick}
-          type="button"
-          aria-label="next"
-        ></button>
-      </div>
-      <div className="carousel__info">
-        <div className="carousel__header">
-          <div className="carousel__title">
-            <h2>{data.titre}</h2>
-          </div>
-          <div>
-            {index + 1}/{limit}
+          <button
+            className="carousel__control --prev"
+            style={{ height: height }}
+            onClick={prevClick}
+            type="button"
+            aria-label="previous"
+          ></button>
+          <button
+            className="carousel__control --next"
+            style={{ height: height }}
+            onClick={nextClick}
+            type="button"
+            aria-label="next"
+          ></button>
+        </div>
+        <div className="carousel__info">
+          <div className="carousel__header">
+            <div className="carousel__title">
+              <h2>{data.titre}</h2>
+            </div>
+            <div>
+              {index + 1}/{limit}
+            </div>
           </div>
         </div>
+        <Edition data={data} />
       </div>
-      <Edition data={data} />
       <div className="title__md">
         <h2>{project ? "projects" : "editions"}</h2>
       </div>
-    </div>
+    </>
   )
 }
 
