@@ -85,115 +85,94 @@ const Carousel = ({ data, project, prev, next }) => {
   }
 
   return (
-    <div
-      className={`carousel ${transition ? "--transition-over" : ""}`}
-      ref={ref}
-    >
-      <div className={`carousel__inner `}>
-        {medias.map((media, i) => (
-          <div
-            className={`carousel__item ${index === i ? "active" : ""}`}
-            key={media.id}
-          >
-            <div className="item__inner" style={{ height: height }}>
-              {media.isVideo ? (
-                <video
-                  playsInline
-                  loop
-                  autoPlay
-                  muted
-                  poster={data.contentfulVideoPlaceholder.image.file.url}
-                >
-                  <source src={media.media.file.url} type="video/mp4" />
-                </video>
-              ) : (
-                <Img
-                  fluid={media.media.fluid}
-                  alt={media.media.description}
-                  backgroundColor={`${data.contentfulVariableCouleur.valeur}`}
-                />
-              )}
-            </div>
+    <>
+      <div
+        className={`carousel ${transition ? "--transition-over" : ""}`}
+        ref={ref}
+      >
+        <div className={`carousel__inner `}>
+          {medias.map((media, i) => (
+            <div
+              className={`carousel__item ${index === i ? "active" : ""}`}
+              key={media.id}
+            >
+              <div className="item__inner" style={{ height: height }}>
+                {media.isVideo ? (
+                  <video
+                    playsInline
+                    loop
+                    autoPlay
+                    muted
+                    poster={data.contentfulVideoPlaceholder.image.file.url}
+                  >
+                    <source src={media.media.file.url} type="video/mp4" />
+                  </video>
+                ) : (
+                  <Img
+                    fluid={media.media.fluid}
+                    alt={media.media.description}
+                    backgroundColor={`${data.contentfulVariableCouleur.valeur}`}
+                  />
+                )}
+              </div>
 
-            <div className="carousel__info">
-              <div className="carousel__header">
-                <div className="carousel__title">
-                  <div>
-                    <h2>{data.contentfulProjet.titre}</h2>
-                    {media.titre && <h3>{media.titre}</h3>}
+              <div className="carousel__info">
+                <div className="carousel__header">
+                  <div className="carousel__title">
+                    <div>
+                      <h2>{data.contentfulProjet.titre}</h2>
+                      {media.titre && <h3>{media.titre}</h3>}
+                    </div>
+                    {media.categorie && (
+                      <ul>
+                        {media.categorie.map((cat, indexMedia) => (
+                          <li key={cat.id}>
+                            {cat.nom +
+                              (indexMedia !== media.categorie.length - 1
+                                ? ", "
+                                : "")}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    {media.date && <h3>{media.date}</h3>}
                   </div>
-                  {media.categorie && (
-                    <ul>
-                      {media.categorie.map((cat, indexMedia) => (
-                        <li key={cat.id}>
-                          {cat.nom +
-                            (indexMedia !== media.categorie.length - 1
-                              ? ", "
-                              : "")}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                  {media.date && <h3>{media.date}</h3>}
-                </div>
-                <div>
-                  {index + 1}/{limit}
+                  <div>
+                    {index + 1}/{limit}
+                  </div>
                 </div>
               </div>
+              {media.contenu && <Project content={media.contenu} />}
             </div>
-            {media.contenu && <Project content={media.contenu} />}
-          </div>
-        ))}
+          ))}
 
-        <button
-          className="carousel__control --prev"
-          style={{ height: height }}
-          onClick={prevClick}
-          type="button"
-          aria-label="previous"
-        ></button>
-        <button
-          className="carousel__control --next"
-          style={{ height: height }}
-          onClick={nextClick}
-          type="button"
-          aria-label="next"
-        ></button>
-        <button
-          className="carousel__control --swipe"
-          style={{ height: height }}
-          {...bind()}
-          type="button"
-          aria-label="swipe"
-        ></button>
-      </div>
-      {/* <div className="carousel__info">
-        <div className="carousel__header">
-          <div className="carousel__title">
-            <h2>{data.contentfulProjet.client}</h2>
-            {project && (
-              <>
-                <h3>titre</h3>
-                <ul>
-                  <li>categorie 1,</li>
-                  <li>categorie 2,</li>
-                  <li>art direction</li>
-                </ul>
-                <h3>année</h3>
-              </>
-            )}
-          </div>
-          <div>
-            {index + 1}/{limit}
-          </div>
+          <button
+            className="carousel__control --prev"
+            style={{ height: height }}
+            onClick={prevClick}
+            type="button"
+            aria-label="previous"
+          ></button>
+          <button
+            className="carousel__control --next"
+            style={{ height: height }}
+            onClick={nextClick}
+            type="button"
+            aria-label="next"
+          ></button>
+          <button
+            className="carousel__control --swipe"
+            style={{ height: height }}
+            {...bind()}
+            type="button"
+            aria-label="swipe"
+          ></button>
         </div>
       </div>
-      {project && <Project />}
-      {edition && <Edition />} */}
       <div className="title__md">
         <h2>{project ? "projects" : "editions"}</h2>
       </div>
-    </div>
+    </>
   )
 }
 
