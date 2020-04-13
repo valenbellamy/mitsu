@@ -65,6 +65,7 @@
       }
       @media (max-width: 767.98px) {
         background: transparent;
+        width: 100%;
       }
     }
     .--next {
@@ -81,6 +82,7 @@
       }
       @media (max-width: 767.98px) {
         background: transparent;
+        display: none;
       }
     }
   }

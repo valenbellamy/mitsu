@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import Img from "gatsby-image"
 import Project from "./Project"
 import { navigate } from "gatsby"
+import { useDrag } from "react-use-gesture"
 
 const Carousel = ({ data, project, prev, next }) => {
   const [limit, setLimit] = useState(0)
@@ -27,6 +28,17 @@ const Carousel = ({ data, project, prev, next }) => {
       setIndex(index => index + 1)
     }
   }
+
+  const bind = useDrag(({ swipe: [swipeX] }) => {
+    // position will either be -1, 0 or 1
+    console.log(swipeX)
+    if (swipeX === 1) {
+      nextClick()
+    }
+    if (swipeX === -1) {
+      prevClick()
+    }
+  })
 
   useEffect(() => {
     setLimit(data.contentfulProjet.carousel.length)
@@ -114,6 +126,7 @@ const Carousel = ({ data, project, prev, next }) => {
           onClick={prevClick}
           type="button"
           aria-label="previous"
+          {...bind()}
         ></button>
         <button
           className="carousel__control --next"
