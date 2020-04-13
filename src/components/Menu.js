@@ -53,9 +53,12 @@ const Menu = ({
   `)
 
   useEffect(() => {
-    if (showProjects && window.innerWidth < 992) {
+    if (showProjects) {
       setShowprojects(true)
     }
+    // if (showProjects && window.innerWidth < 992) {
+    //   setShowprojects(true)
+    // }
     if (showFilters) {
       setShoweditions(true)
     }
