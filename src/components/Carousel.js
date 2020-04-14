@@ -5,12 +5,33 @@ import Project from "./Project"
 import { navigate } from "gatsby"
 import { useDrag } from "react-use-gesture"
 
+function getMobileOperatingSystem() {
+  var userAgent = navigator.userAgent || navigator.vendor || window.opera
+
+  // Windows Phone must come first because its UA also contains "Android"
+  if (/windows phone/i.test(userAgent)) {
+    return "Windows Phone"
+  }
+
+  if (/android/i.test(userAgent)) {
+    return "Android"
+  }
+
+  // iOS detection from: http://stackoverflow.com/a/9039885/177710
+  if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+    return "iOS"
+  }
+
+  return "unknown"
+}
+
 const Carousel = ({ data, project, prev, next }) => {
   const [limit, setLimit] = useState(0)
   const [index, setIndex] = useState(0)
   const [height, setHeight] = useState(0)
   const [width, setWidth] = useState(0)
   const [transition, setTransition] = useState(false)
+  const [currentSystem, setCurrentSystem] = useState("")
   const ref = useRef(null)
   // const videoref = useRef(null)
 
@@ -65,6 +86,8 @@ const Carousel = ({ data, project, prev, next }) => {
     setLimit(data.contentfulProjet.carousel.length)
     setWidth(window.innerWidth)
     setTransition(true)
+    const currentSystem = getMobileOperatingSystem()
+    setCurrentSystem(currentSystem)
   }, [])
 
   useLayoutEffect(() => {
@@ -106,7 +129,18 @@ const Carousel = ({ data, project, prev, next }) => {
                     autoPlay
                     poster={data.contentfulVideoPlaceholder.image.file.url}
                   >
-                    <source
+                    {currentSystem === "iOS" ? (
+                      <source
+                        src={media.media.file.url}
+                        type={media.media.file.contentType}
+                      />
+                    ) : (
+                      <source
+                        src={media.mediaWebm.file.url}
+                        type={media.mediaWebm.file.contentType}
+                      />
+                    )}
+                    {/* <source
                       src={media.media.file.url}
                       type={media.media.file.contentType}
                     />
@@ -115,7 +149,7 @@ const Carousel = ({ data, project, prev, next }) => {
                         src={media.mediaWebm.file.url}
                         type={media.mediaWebm.file.contentType}
                       />
-                    )}
+                    )} */}
                   </video>
                 ) : (
                   <Img
