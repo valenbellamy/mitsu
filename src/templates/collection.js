@@ -25,11 +25,14 @@ export const query = graphql`
           couverture {
             description
             fluid {
-              ...GatsbyContentfulFluid
+              ...GatsbyContentfulFluid_noBase64
             }
           }
         }
       }
+    }
+    contentfulVariableCouleur {
+      valeur
     }
   }
 `
@@ -40,7 +43,10 @@ const collection = ({ data }) => {
       <SEO title="Editions" />
       <Menu showFilters={true} showCart={true} />
       <div className="content">
-        <Editions editions={data.allContentfulEdition} />
+        <Editions
+          editions={data.allContentfulEdition}
+          bg={data.contentfulVariableCouleur}
+        />
       </div>
     </Layout>
   )

@@ -5,7 +5,12 @@
   @media (max-width: 1199.98px) {
     margin-bottom: $main-size-sm;
   }
-  div,
+  > div {
+    margin-bottom: $main-size;
+    @media (max-width: 1199.98px) {
+      margin-bottom: $main-size-sm;
+    }
+  }
   p,
   span,
   li,

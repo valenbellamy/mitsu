@@ -28,6 +28,9 @@ export const query = graphql`
         }
       }
     }
+    contentfulVariableCouleur {
+      valeur
+    }
   }
 `
 
@@ -37,7 +40,10 @@ const editions = ({ data }) => {
       <SEO title="Editions" />
       <Menu showFilters={true} showCart={true} />
       <div className="content">
-        <Editions editions={data.allContentfulEdition} />
+        <Editions
+          editions={data.allContentfulEdition}
+          bg={data.contentfulVariableCouleur}
+        />
       </div>
     </Layout>
   )

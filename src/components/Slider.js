@@ -22,10 +22,25 @@ function getMobileOperatingSystem() {
   return "unknown"
 }
 
+function getBrowser() {
+  var ua = navigator.userAgent.toLowerCase()
+  if (ua.indexOf("safari") != -1) {
+    if (ua.indexOf("chrome") > -1) {
+      return "Chrome"
+    } else {
+      return "Safari"
+    }
+  } else {
+    return "Not chrome or safari"
+  }
+}
+
 const Slider = ({ activeItem }) => {
   const [index, setIndex] = useState(0)
   const [limit, setLimit] = useState(null)
   const [transition, setTransition] = useState(false)
+  const [currentSystem, setCurrentSystem] = useState("")
+  const [currentBrowser, setCurrentBrowser] = useState("")
 
   const data = useStaticQuery(graphql`
     query {
@@ -40,11 +55,20 @@ const Slider = ({ activeItem }) => {
                 url
               }
               fluid {
-                ...GatsbyContentfulFluid
+                ...GatsbyContentfulFluid_noBase64
+              }
+            }
+            couvertureWebm {
+              file {
+                contentType
+                url
               }
             }
           }
         }
+      }
+      contentfulVariableCouleur {
+        valeur
       }
     }
   `)
@@ -52,7 +76,10 @@ const Slider = ({ activeItem }) => {
   useEffect(() => {
     setLimit(data.allContentfulProjet.edges.length)
     setTransition(true)
-    var currentSystem = getMobileOperatingSystem()
+    const currentSystem = getMobileOperatingSystem()
+    setCurrentSystem(currentSystem)
+    const currentBrowser = getBrowser()
+    setCurrentBrowser(currentBrowser)
   }, [])
 
   useEffect(() => {
@@ -79,15 +106,23 @@ const Slider = ({ activeItem }) => {
         >
           {photo.node.couverture.file.contentType.includes("video") ? (
             <video playsInline loop autoPlay muted>
-              <source
-                src={photo.node.couverture.file.url}
-                type={photo.node.couverture.file.contentType}
-              />
+              {currentSystem === "iOS" || currentBrowser === "Safari" ? (
+                <source
+                  src={photo.node.couverture.file.url}
+                  type={photo.node.couverture.file.contentType}
+                />
+              ) : (
+                <source
+                  src={photo.node.couvertureWebm.file.url}
+                  type={photo.node.couvertureWebm.file.contentType}
+                />
+              )}
             </video>
           ) : (
             <Img
               fluid={photo.node.couverture.fluid}
               alt={photo.node.couverture.description}
+              backgroundColor={`${data.contentfulVariableCouleur.valeur}`}
             />
           )}
         </div>

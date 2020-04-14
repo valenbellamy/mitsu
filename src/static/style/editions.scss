@@ -79,6 +79,9 @@
         &:hover {
           opacity: 1;
         }
+        @media (max-width: 767.98px) {
+          background: transparent;
+        }
       }
     }
     .item__content {

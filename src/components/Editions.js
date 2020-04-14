@@ -2,7 +2,7 @@ import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
-const Editions = ({ editions }) => {
+const Editions = ({ editions, bg }) => {
   const paypalButton = useStaticQuery(graphql`
     query {
       contentfulImageBoutonPaypal {
@@ -24,6 +24,7 @@ const Editions = ({ editions }) => {
               <Img
                 fluid={edition.node.couverture.fluid}
                 alt={edition.node.couverture.description}
+                backgroundColor={`${bg.valeur}`}
               />
             </div>
             <Link to={`/edition/${edition.node.slug}`}>

@@ -103,7 +103,6 @@ const Carousel = ({ data, project, prev, next }) => {
     setCurrentSystem(currentSystem)
     const currentBrowser = getBrowser()
     setCurrentBrowser(currentBrowser)
-    console.log(currentBrowser)
   }, [])
 
   useLayoutEffect(() => {
@@ -236,7 +235,7 @@ const Carousel = ({ data, project, prev, next }) => {
         </div>
       </div>
       <div className="title__md">
-        <h2>{project ? "projects" : "editions"}</h2>
+        <h2>projects</h2>
       </div>
     </>
   )

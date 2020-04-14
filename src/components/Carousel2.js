@@ -4,13 +4,13 @@ import Img from "gatsby-image"
 import Edition from "./Edition"
 import { navigate } from "gatsby"
 
-const Carousel2 = ({ data, project, edition, prev, next }) => {
+const Carousel2 = ({ data, edition, prev, next }) => {
   const [limit, setLimit] = useState(0)
   const [index, setIndex] = useState(0)
   const [height, setHeight] = useState(0)
   const [transition, setTransition] = useState(false)
   const ref = useRef(null)
-  const medias = data.photo
+  const medias = data.contentfulEdition.photo
 
   const prevClick = () => {
     if (index === 0) {
@@ -58,7 +58,11 @@ const Carousel2 = ({ data, project, edition, prev, next }) => {
               style={{ height: height }}
               key={media.id}
             >
-              <Img fluid={media.fluid} alt={media.description} />
+              <Img
+                fluid={media.fluid}
+                alt={media.description}
+                backgroundColor={`${data.contentfulVariableCouleur.valeur}`}
+              />
             </div>
           ))}
 
@@ -90,7 +94,7 @@ const Carousel2 = ({ data, project, edition, prev, next }) => {
         <Edition data={data} />
       </div>
       <div className="title__md">
-        <h2>{project ? "projects" : "editions"}</h2>
+        <h2>editions</h2>
       </div>
     </>
   )
@@ -98,7 +102,6 @@ const Carousel2 = ({ data, project, edition, prev, next }) => {
 
 Carousel2.defaultProps = {
   data: [],
-  project: false,
   edition: false,
   prev: "",
   next: "",
@@ -106,7 +109,6 @@ Carousel2.defaultProps = {
 
 Carousel2.propTypes = {
   data: PropTypes.object,
-  project: PropTypes.bool,
   edition: PropTypes.bool,
   prev: PropTypes.string,
   next: PropTypes.string,

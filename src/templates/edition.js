@@ -23,9 +23,12 @@ export const query = graphql`
         id
         description
         fluid {
-          ...GatsbyContentfulFluid
+          ...GatsbyContentfulFluid_noBase64
         }
       }
+    }
+    contentfulVariableCouleur {
+      valeur
     }
   }
 `
@@ -37,7 +40,7 @@ const edition = ({ data, pageContext }) => {
       <Menu showFilters={true} showCart={true} />
       <div className="content">
         <Carousel2
-          data={data.contentfulEdition}
+          data={data}
           edition={true}
           prev={pageContext.prev.slug}
           next={pageContext.next.slug}
