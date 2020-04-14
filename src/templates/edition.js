@@ -22,8 +22,8 @@ export const query = graphql`
       photo {
         id
         description
-        fluid {
-          ...GatsbyContentfulFluid_noBase64
+        fluid(quality: 90) {
+          ...GatsbyContentfulFluid_withWebp_noBase64
         }
       }
     }

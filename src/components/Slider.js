@@ -54,8 +54,8 @@ const Slider = ({ activeItem }) => {
                 contentType
                 url
               }
-              fluid {
-                ...GatsbyContentfulFluid_noBase64
+              fluid(quality: 70) {
+                ...GatsbyContentfulFluid_withWebp_noBase64
               }
             }
             couvertureWebm {

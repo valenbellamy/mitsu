@@ -22,7 +22,7 @@ export const query = graphql`
           couverture {
             description
             fluid {
-              ...GatsbyContentfulFluid
+              ...GatsbyContentfulFluid_withWebp_noBase64
             }
           }
         }

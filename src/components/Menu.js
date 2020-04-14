@@ -32,7 +32,7 @@ const Menu = ({
           }
         }
       }
-      allContentfulCategorie {
+      allContentfulCategorie(sort: { fields: ordre, order: DESC }) {
         edges {
           node {
             id
