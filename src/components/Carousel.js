@@ -25,6 +25,19 @@ function getMobileOperatingSystem() {
   return "unknown"
 }
 
+function getBrowser() {
+  var ua = navigator.userAgent.toLowerCase()
+  if (ua.indexOf("safari") != -1) {
+    if (ua.indexOf("chrome") > -1) {
+      return "Chrome"
+    } else {
+      return "Safari"
+    }
+  } else {
+    return "Not chrome or safari"
+  }
+}
+
 const Carousel = ({ data, project, prev, next }) => {
   const [limit, setLimit] = useState(0)
   const [index, setIndex] = useState(0)
@@ -32,6 +45,7 @@ const Carousel = ({ data, project, prev, next }) => {
   const [width, setWidth] = useState(0)
   const [transition, setTransition] = useState(false)
   const [currentSystem, setCurrentSystem] = useState("")
+  const [currentBrowser, setCurrentBrowser] = useState("")
   const ref = useRef(null)
   // const videoref = useRef(null)
 
@@ -87,6 +101,9 @@ const Carousel = ({ data, project, prev, next }) => {
     setTransition(true)
     const currentSystem = getMobileOperatingSystem()
     setCurrentSystem(currentSystem)
+    const currentBrowser = getBrowser()
+    setCurrentBrowser(currentBrowser)
+    console.log(currentBrowser)
   }, [])
 
   useLayoutEffect(() => {
@@ -106,8 +123,6 @@ const Carousel = ({ data, project, prev, next }) => {
       }
     }
   }
-
-  console.log(currentSystem)
 
   return (
     <>
@@ -130,7 +145,7 @@ const Carousel = ({ data, project, prev, next }) => {
                     autoPlay
                     poster={data.contentfulVideoPlaceholder.image.file.url}
                   >
-                    {currentSystem === "iOS" ? (
+                    {currentSystem === "iOS" || currentBrowser === "Safari" ? (
                       <source
                         src={media.media.file.url}
                         type={media.media.file.contentType}
