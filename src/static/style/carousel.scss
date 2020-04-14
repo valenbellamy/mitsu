@@ -44,6 +44,7 @@
       transition: opacity 0.3s;
       cursor: pointer;
       z-index: 2;
+      touch-action: manipulation;
       &:hover {
         opacity: 1;
       }

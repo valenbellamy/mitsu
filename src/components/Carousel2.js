@@ -84,14 +84,14 @@ const Carousel2 = ({ data, edition, prev, next }) => {
         <div className="carousel__info">
           <div className="carousel__header">
             <div className="carousel__title">
-              <h2>{data.titre}</h2>
+              <h2>{data.contentfulEdition.titre}</h2>
             </div>
             <div>
               {index + 1}/{limit}
             </div>
           </div>
         </div>
-        <Edition data={data} />
+        <Edition data={data.contentfulEdition} />
       </div>
       <div className="title__md">
         <h2>editions</h2>

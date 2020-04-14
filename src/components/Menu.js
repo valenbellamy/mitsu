@@ -173,6 +173,7 @@ const Menu = ({
                       to={`/project/${edge.node.slug}`}
                       onMouseEnter={() => mouseEnterProject(i)}
                       onMouseLeave={mouseLeaveProject}
+                      activeClassName="active"
                     >
                       {edge.node.client}
                     </Link>
