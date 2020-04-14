@@ -53,34 +53,33 @@ const Carousel = ({ data, project, prev, next }) => {
     }
   }
 
-  const bind = useDrag(
-    ({
-      swipe: [swipeX],
-      tap,
-      direction: [directionX],
-      initial: [initialX],
-      dragging,
-      elapsedTime,
-    }) => {
-      // position will either be -1, 0 or 1
+  // const bind = useDrag(
+  //   ({
+  //     swipe: [swipeX],
+  //     tap,
+  //     direction: [directionX],
+  //     initial: [initialX],
+  //     dragging,
+  //     elapsedTime,
+  //   }) => {
 
-      const dir = directionX < 0 ? -1 : 1
-      if (tap && initialX > width / 2 && elapsedTime > 0) {
-        nextClick()
-      }
-      if (tap && initialX < width / 2 && elapsedTime > 0) {
-        prevClick()
-      }
+  //     const dir = directionX < 0 ? -1 : 1
+  //     if (tap && initialX > width / 2 && elapsedTime > 0) {
+  //       nextClick()
+  //     }
+  //     if (tap && initialX < width / 2 && elapsedTime > 0) {
+  //       prevClick()
+  //     }
 
-      if (!dragging && !tap && dir === -1) {
-        prevClick()
-      }
-      if (!dragging && !tap && dir === 1) {
-        nextClick()
-      }
-    },
-    { filterTaps: true, lockDirection: true, swipeVelocity: [0.1, 0.1] }
-  )
+  //     if (!dragging && !tap && dir === -1) {
+  //       prevClick()
+  //     }
+  //     if (!dragging && !tap && dir === 1) {
+  //       nextClick()
+  //     }
+  //   },
+  //   { filterTaps: true, lockDirection: true, swipeVelocity: [0.1, 0.1] }
+  // )
 
   useEffect(() => {
     setLimit(data.contentfulProjet.carousel.length)
@@ -107,6 +106,8 @@ const Carousel = ({ data, project, prev, next }) => {
       }
     }
   }
+
+  console.log(currentSystem)
 
   return (
     <>
@@ -204,13 +205,13 @@ const Carousel = ({ data, project, prev, next }) => {
             type="button"
             aria-label="next"
           ></button>
-          <button
+          {/* <button
             className="carousel__control --swipe"
             style={{ height: height }}
             {...bind()}
             type="button"
             aria-label="swipe"
-          ></button>
+          ></button> */}
           {/* <div
             className="btn__video"
             onClick={() => {

@@ -61,7 +61,7 @@
       }
       @media (max-width: 767.98px) {
         background: transparent;
-        display: none;
+        //display: none;
       }
     }
     .--next {
@@ -78,22 +78,22 @@
       }
       @media (max-width: 767.98px) {
         background: transparent;
-        display: none;
+        //display: none;
       }
     }
-    .--swipe {
-      display: none;
-      width: 0%;
-      border: none;
-      background: none;
-      &:focus {
-        outline: 0;
-      }
-      @media (max-width: 767.98px) {
-        display: block;
-        width: 100%;
-      }
-    }
+    // .--swipe {
+    //   display: none;
+    //   width: 0%;
+    //   border: none;
+    //   background: none;
+    //   &:focus {
+    //     outline: 0;
+    //   }
+    //   @media (max-width: 767.98px) {
+    //     display: block;
+    //     width: 100%;
+    //   }
+    // }
     // .btn__video {
     //   display: none;
     //   position: absolute;
