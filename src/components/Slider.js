@@ -5,6 +5,7 @@ import Img from "gatsby-image"
 const Slider = ({ activeItem }) => {
   const [index, setIndex] = useState(0)
   const [limit, setLimit] = useState(null)
+  const [transition, setTransition] = useState(false)
 
   const data = useStaticQuery(graphql`
     query {
@@ -30,21 +31,14 @@ const Slider = ({ activeItem }) => {
 
   useEffect(() => {
     setLimit(data.allContentfulProjet.edges.length)
+    setTransition(true)
   }, [])
 
   useEffect(() => {
     if (activeItem !== null) {
       setIndex(activeItem)
     }
-    // console.log("active item " + activeItem)
-    // console.log("index " + index)
   }, [activeItem])
-
-  // useEffect(() => {
-  //   if (index === limit) {
-  //     setIndex(0)
-  //   }
-  // }, [index])
 
   const increment = index => {
     if (index === limit - 1) {
@@ -55,7 +49,7 @@ const Slider = ({ activeItem }) => {
   }
 
   return (
-    <div className="sliderHome">
+    <div className={`sliderHome ${transition ? "--transition-over" : ""}`}>
       {data.allContentfulProjet.edges.map((photo, i) => (
         <div
           className={`slide ${index === i ? "active" : ""}`}

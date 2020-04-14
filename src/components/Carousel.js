@@ -110,6 +110,12 @@ const Carousel = ({ data, project, prev, next }) => {
                       src={media.media.file.url}
                       type={media.media.file.contentType}
                     />
+                    {media.mediawebm && (
+                      <source
+                        src={media.mediaWebm.file.url}
+                        type={media.mediaWebm.file.contentType}
+                      />
+                    )}
                   </video>
                 ) : (
                   <Img

@@ -28,6 +28,12 @@ export const query = graphql`
             ...GatsbyContentfulFluid_noBase64
           }
         }
+        mediaWebm {
+          file {
+            contentType
+            url
+          }
+        }
         date
         contenu {
           json
