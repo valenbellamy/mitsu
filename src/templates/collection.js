@@ -37,17 +37,20 @@ export const query = graphql`
   }
 `
 
-const collection = ({ data }) => {
+const collection = ({ data, pageContext }) => {
+  console.log(pageContext)
   return (
     <Layout>
-      <SEO title="Editions" />
-      <Menu showFilters={true} showCart={true} specialPaddingXs={true} />
-      <div className="content">
-        <Editions
-          editions={data.allContentfulEdition}
-          bg={data.contentfulVariableCouleur}
-        />
-      </div>
+      <main>
+        <SEO title={pageContext.nom} />
+        <Menu showFilters={true} showCart={true} specialPaddingXs={true} />
+        <div className="content">
+          <Editions
+            editions={data.allContentfulEdition}
+            bg={data.contentfulVariableCouleur}
+          />
+        </div>
+      </main>
     </Layout>
   )
 }

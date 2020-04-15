@@ -8,15 +8,16 @@ const IndexPage = () => {
   const [index, setIndex] = useState(null)
   const handleHover = value => {
     setIndex(value)
-    // console.log("index index " + index)
   }
   return (
     <Layout>
-      <SEO title="Accueil" />
-      <Menu menuHover={handleHover} />
-      <div className="content">
-        <Slider activeItem={index} />
-      </div>
+      <main>
+        <SEO title="Accueil" />
+        <Menu menuHover={handleHover} />
+        <div className="content">
+          <Slider activeItem={index} />
+        </div>
+      </main>
     </Layout>
   )
 }

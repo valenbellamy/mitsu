@@ -52,9 +52,7 @@ const Layout = ({ children }) => {
   return (
     <>
       {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
-      <div style={{ height: "100%" }}>
-        <main>{children}</main>
-      </div>
+      <div style={{ height: "100%" }}>{children}</div>
     </>
   )
 }

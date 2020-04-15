@@ -57,16 +57,18 @@ export const query = graphql`
 const project = ({ data, pageContext }) => {
   return (
     <Layout>
-      <SEO title="Project" />
-      <Menu showProjects={true} />
-      <div className="content">
-        <Carousel
-          data={data}
-          project={true}
-          prev={pageContext.prev.slug}
-          next={pageContext.next.slug}
-        />
-      </div>
+      <main>
+        <SEO title={data.contentfulProjet.titre} />
+        <Menu showProjects={true} />
+        <div className="content">
+          <Carousel
+            data={data}
+            project={true}
+            prev={pageContext.prev.slug}
+            next={pageContext.next.slug}
+          />
+        </div>
+      </main>
     </Layout>
   )
 }

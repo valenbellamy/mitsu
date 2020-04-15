@@ -36,16 +36,18 @@ export const query = graphql`
 const edition = ({ data, pageContext }) => {
   return (
     <Layout>
-      <SEO title="Edition" />
-      <Menu showFilters={true} showCart={true} specialPaddingXs={true} />
-      <div className="content">
-        <Carousel2
-          data={data}
-          edition={true}
-          prev={pageContext.prev.slug}
-          next={pageContext.next.slug}
-        />
-      </div>
+      <main>
+        <SEO title={data.contentfulEdition.titre} />
+        <Menu showFilters={true} showCart={true} specialPaddingXs={true} />
+        <div className="content">
+          <Carousel2
+            data={data}
+            edition={true}
+            prev={pageContext.prev.slug}
+            next={pageContext.next.slug}
+          />
+        </div>
+      </main>
     </Layout>
   )
 }

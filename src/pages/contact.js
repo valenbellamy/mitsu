@@ -53,30 +53,32 @@ const Contact = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Contact" />
-      <Menu bgResponsive={false} />
-      <div className="content">
-        <div className="contact">
-          {contenu && (
-            <div>{documentToReactComponents(contenu.json, options)}</div>
-          )}
-          {contenu2 && (
-            <div>{documentToReactComponents(contenu2.json, options)}</div>
-          )}
-          {contenu3 && (
-            <div>{documentToReactComponents(contenu3.json, options)}</div>
-          )}
-          {contenu4 && (
-            <div>{documentToReactComponents(contenu4.json, options)}</div>
-          )}
-          {contenu5 && (
-            <div>{documentToReactComponents(contenu5.json, options)}</div>
-          )}
-          {contenu6 && (
-            <div>{documentToReactComponents(contenu6.json, options)}</div>
-          )}
+      <main>
+        <SEO title="Contact" />
+        <Menu bgResponsive={false} />
+        <div className="content">
+          <div className="contact">
+            {contenu && (
+              <div>{documentToReactComponents(contenu.json, options)}</div>
+            )}
+            {contenu2 && (
+              <div>{documentToReactComponents(contenu2.json, options)}</div>
+            )}
+            {contenu3 && (
+              <div>{documentToReactComponents(contenu3.json, options)}</div>
+            )}
+            {contenu4 && (
+              <div>{documentToReactComponents(contenu4.json, options)}</div>
+            )}
+            {contenu5 && (
+              <div>{documentToReactComponents(contenu5.json, options)}</div>
+            )}
+            {contenu6 && (
+              <div>{documentToReactComponents(contenu6.json, options)}</div>
+            )}
+          </div>
         </div>
-      </div>
+      </main>
     </Layout>
   )
 }

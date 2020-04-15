@@ -37,14 +37,16 @@ export const query = graphql`
 const editions = ({ data }) => {
   return (
     <Layout>
-      <SEO title="Editions" />
-      <Menu showFilters={true} showCart={true} specialPaddingXs={true} />
-      <div className="content">
-        <Editions
-          editions={data.allContentfulEdition}
-          bg={data.contentfulVariableCouleur}
-        />
-      </div>
+      <main>
+        <SEO title="Editions" />
+        <Menu showFilters={true} showCart={true} specialPaddingXs={true} />
+        <div className="content">
+          <Editions
+            editions={data.allContentfulEdition}
+            bg={data.contentfulVariableCouleur}
+          />
+        </div>
+      </main>
     </Layout>
   )
 }

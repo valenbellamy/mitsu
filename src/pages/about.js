@@ -36,18 +36,20 @@ const About = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="About" />
-      <Menu bgResponsive={false} />
-      <div className="content">
-        <div className="about">
-          {documentToReactComponents(contenu.json, options)}
-          {mentions && (
-            <div className="mentions">
-              {documentToReactComponents(mentions.json, options)}
-            </div>
-          )}
+      <main>
+        <SEO title="About" />
+        <Menu bgResponsive={false} />
+        <div className="content">
+          <div className="about">
+            {documentToReactComponents(contenu.json, options)}
+            {mentions && (
+              <div className="mentions">
+                {documentToReactComponents(mentions.json, options)}
+              </div>
+            )}
+          </div>
         </div>
-      </div>
+      </main>
     </Layout>
   )
 }

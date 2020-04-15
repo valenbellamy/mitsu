@@ -31,13 +31,15 @@ const About = ({ data }) => {
   }
   return (
     <Layout>
-      <SEO title="About editions" />
-      <Menu showFilters={true} showCart={true} specialPaddingXs={true} />
-      <div className="content">
-        <div className="about about--editions">
-          {contenu && <>{documentToReactComponents(contenu.json, options)}</>}
+      <main>
+        <SEO title="About editions" />
+        <Menu showFilters={true} showCart={true} specialPaddingXs={true} />
+        <div className="content">
+          <div className="about about--editions">
+            {contenu && <>{documentToReactComponents(contenu.json, options)}</>}
+          </div>
         </div>
-      </div>
+      </main>
     </Layout>
   )
 }
