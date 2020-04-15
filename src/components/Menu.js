@@ -9,6 +9,7 @@ const Menu = ({
   showCart,
   menuHover,
   bgResponsive,
+  specialPaddingXs,
 }) => {
   const [open, setOpen] = useState(false)
   const [showprojects, setShowprojects] = useState(false)
@@ -94,7 +95,11 @@ const Menu = ({
 
   return (
     <nav>
-      <div className={`menu__top ${bgResponsive ? "--bg" : ""}`}>
+      <div
+        className={`menu__top ${bgResponsive ? "--bg" : ""} ${
+          specialPaddingXs ? "--special-padding" : ""
+        }`}
+      >
         <div>
           <Link to="/">
             <h1>studio mitsu</h1>
@@ -218,6 +223,7 @@ Menu.defaultProps = {
   showCart: false,
   menuHover: () => {},
   bgResponsive: true,
+  specialPaddingXs: false,
 }
 
 Menu.propTypes = {
@@ -226,6 +232,7 @@ Menu.propTypes = {
   showCart: PropTypes.bool,
   menuHover: PropTypes.func,
   bgResponsive: PropTypes.bool,
+  specialPaddingXs: PropTypes.bool,
 }
 
 export default Menu

@@ -37,7 +37,7 @@ const edition = ({ data, pageContext }) => {
   return (
     <Layout>
       <SEO title="Edition" />
-      <Menu showFilters={true} showCart={true} />
+      <Menu showFilters={true} showCart={true} specialPaddingXs={true} />
       <div className="content">
         <Carousel2
           data={data}

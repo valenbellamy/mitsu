@@ -4,10 +4,11 @@ import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 import Menu from "../../components/Menu"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { INLINES } from "@contentful/rich-text-types"
 
 export const query = graphql`
   query {
-    contentfulAboutEditions {
+    contentfulAboutEditions(titre: { eq: "About" }) {
       contenu {
         json
       }
@@ -17,13 +18,24 @@ export const query = graphql`
 
 const About = ({ data }) => {
   const contenu = data.contentfulAboutEditions.contenu
+  const options = {
+    renderNode: {
+      [INLINES.HYPERLINK]: node => {
+        return (
+          <a href={node.data.uri} target="_blank" rel="noopener noreferrer">
+            {node.content[0].value}
+          </a>
+        )
+      },
+    },
+  }
   return (
     <Layout>
       <SEO title="About editions" />
-      <Menu showFilters={true} showCart={true} />
+      <Menu showFilters={true} showCart={true} specialPaddingXs={true} />
       <div className="content">
         <div className="about about--editions">
-          {documentToReactComponents(contenu.json)}
+          {contenu && <>{documentToReactComponents(contenu.json, options)}</>}
         </div>
       </div>
     </Layout>

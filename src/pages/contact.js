@@ -4,10 +4,12 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Menu from "../components/Menu"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { INLINES } from "@contentful/rich-text-types"
 
 export const query = graphql`
   query {
-    contentfulContact {
+    contentfulContact(titre: { eq: "Contact" }) {
+      titre
       description {
         json
       }
@@ -37,18 +39,42 @@ const Contact = ({ data }) => {
   const contenu4 = data.contentfulContact.description4
   const contenu5 = data.contentfulContact.description5
   const contenu6 = data.contentfulContact.description6
+  const options = {
+    renderNode: {
+      [INLINES.HYPERLINK]: node => {
+        return (
+          <a href={node.data.uri} target="_blank" rel="noopener noreferrer">
+            {node.content[0].value}
+          </a>
+        )
+      },
+    },
+  }
+
   return (
     <Layout>
       <SEO title="Contact" />
       <Menu bgResponsive={false} />
       <div className="content">
         <div className="contact">
-          <div>{documentToReactComponents(contenu.json)}</div>
-          <div>{documentToReactComponents(contenu2.json)}</div>
-          <div>{documentToReactComponents(contenu3.json)}</div>
-          <div>{documentToReactComponents(contenu4.json)}</div>
-          <div>{documentToReactComponents(contenu5.json)}</div>
-          <div>{documentToReactComponents(contenu6.json)}</div>
+          {contenu && (
+            <div>{documentToReactComponents(contenu.json, options)}</div>
+          )}
+          {contenu2 && (
+            <div>{documentToReactComponents(contenu2.json, options)}</div>
+          )}
+          {contenu3 && (
+            <div>{documentToReactComponents(contenu3.json, options)}</div>
+          )}
+          {contenu4 && (
+            <div>{documentToReactComponents(contenu4.json, options)}</div>
+          )}
+          {contenu5 && (
+            <div>{documentToReactComponents(contenu5.json, options)}</div>
+          )}
+          {contenu6 && (
+            <div>{documentToReactComponents(contenu6.json, options)}</div>
+          )}
         </div>
       </div>
     </Layout>

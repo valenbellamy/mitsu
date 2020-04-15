@@ -41,7 +41,7 @@ const collection = ({ data }) => {
   return (
     <Layout>
       <SEO title="Editions" />
-      <Menu showFilters={true} showCart={true} />
+      <Menu showFilters={true} showCart={true} specialPaddingXs={true} />
       <div className="content">
         <Editions
           editions={data.allContentfulEdition}
