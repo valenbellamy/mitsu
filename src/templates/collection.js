@@ -38,7 +38,6 @@ export const query = graphql`
 `
 
 const collection = ({ data, pageContext }) => {
-  console.log(pageContext)
   return (
     <Layout>
       <main>

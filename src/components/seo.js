@@ -19,6 +19,7 @@ function SEO({ description, lang, meta, title }) {
             title
             description
             author
+            siteUrl
           }
         }
         contentfulSocialMediaCover(titre: { eq: "Media cover" }) {
@@ -34,6 +35,7 @@ function SEO({ description, lang, meta, title }) {
 
   const metaDescription = description || site.siteMetadata.description
   const ogImage = contentfulSocialMediaCover.image.fixed.src
+  const siteUrl = site.siteMetadata.siteUrl
 
   return (
     <Helmet
@@ -48,6 +50,10 @@ function SEO({ description, lang, meta, title }) {
           content: metaDescription,
         },
         {
+          property: `og:url`,
+          content: siteUrl,
+        },
+        {
           property: `og:title`,
           content: title,
         },
@@ -60,7 +66,7 @@ function SEO({ description, lang, meta, title }) {
           content: `website`,
         },
         {
-          name: "og:image",
+          property: "og:image",
           content: ogImage,
         },
         {
