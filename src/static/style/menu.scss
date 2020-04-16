@@ -316,6 +316,9 @@ nav {
     background: transparent;
     text-transform: uppercase;
     padding: 0rem;
+    &:focus {
+      outline: 0;
+    }
   }
   button.active {
     color: $secondColor;
