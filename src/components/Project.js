@@ -22,6 +22,7 @@ const Project = ({ content }) => {
         onClick={() => setOpen(open => !open)}
         type="button"
         aria-label="See information"
+        aria-expanded="true"
       >
         {open ? "- less infos" : "+"}
       </button>
