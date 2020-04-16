@@ -246,7 +246,8 @@ nav {
     display: none;
     .dropdown__item {
       @media (max-width: 767.98px) {
-        height: 330px;
+        height: 100%;
+        padding-bottom: $main-size-sm;
         overflow-y: scroll;
       }
     }
