@@ -102,6 +102,9 @@ nav {
       right: 1.5rem;
       top: 1.8rem;
       z-index: 100;
+      border: none;
+      background: transparent;
+      padding: 0rem;
       span {
         width: 100%;
         height: 2px;
@@ -246,8 +249,7 @@ nav {
     display: none;
     .dropdown__item {
       @media (max-width: 767.98px) {
-        height: 100%;
-        padding-bottom: $main-size-sm;
+        height: 75vh;
         overflow-y: scroll;
       }
     }
@@ -255,7 +257,7 @@ nav {
       position: absolute;
       left: calc(3rem + (100% / 3 - 3rem));
       top: 0rem;
-      overflow-y: scroll;
+      //overflow-y: scroll;
     }
     @media (max-width: 767.98px) {
       left: 45%;
@@ -288,17 +290,23 @@ nav {
     }
   }
   &.--show {
-    > span {
+    > button {
       color: $secondColor;
     }
     .dropdown__menu {
       display: flex;
     }
   }
-  > span {
-    cursor: pointer;
+  // > span {
+  //   cursor: pointer;
+  // }
+  button {
+    border: none;
+    background: transparent;
+    text-transform: uppercase;
+    padding: 0rem;
   }
-  span.active {
+  button.active {
     color: $secondColor;
   }
   @media (max-width: 991.98px) {

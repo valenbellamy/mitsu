@@ -17,9 +17,14 @@ const Project = ({ content }) => {
   }
   return (
     <div className={open ? "project-detail --open" : "project-detail"}>
-      <span className="trigger" onClick={() => setOpen(open => !open)}>
+      <button
+        className="trigger"
+        onClick={() => setOpen(open => !open)}
+        type="button"
+        aria-label="See information"
+      >
         {open ? "- less infos" : "+"}
-      </span>
+      </button>
       <div>{documentToReactComponents(content.json, options)}</div>
     </div>
   )

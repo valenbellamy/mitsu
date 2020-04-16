@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import Img from "gatsby-image"
 import Project from "./Project"
 import { navigate } from "gatsby"
-import { useDrag } from "react-use-gesture"
+//import { useDrag } from "react-use-gesture"
 
 function getMobileOperatingSystem() {
   var userAgent = navigator.userAgent || navigator.vendor || window.opera
@@ -27,7 +27,7 @@ function getMobileOperatingSystem() {
 
 function getBrowser() {
   var ua = navigator.userAgent.toLowerCase()
-  if (ua.indexOf("safari") != -1) {
+  if (ua.indexOf("safari") !== -1) {
     if (ua.indexOf("chrome") > -1) {
       return "Chrome"
     } else {
@@ -42,7 +42,7 @@ const Carousel = ({ data, project, prev, next }) => {
   const [limit, setLimit] = useState(0)
   const [index, setIndex] = useState(0)
   const [height, setHeight] = useState(0)
-  const [width, setWidth] = useState(0)
+  //const [width, setWidth] = useState(0)
   const [transition, setTransition] = useState(false)
   const [currentSystem, setCurrentSystem] = useState("")
   const [currentBrowser, setCurrentBrowser] = useState("")
@@ -97,7 +97,7 @@ const Carousel = ({ data, project, prev, next }) => {
 
   useEffect(() => {
     setLimit(data.contentfulProjet.carousel.length)
-    setWidth(window.innerWidth)
+    //setWidth(window.innerWidth)
     setTransition(true)
     const currentSystem = getMobileOperatingSystem()
     setCurrentSystem(currentSystem)

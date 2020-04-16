@@ -24,7 +24,7 @@ function getMobileOperatingSystem() {
 
 function getBrowser() {
   var ua = navigator.userAgent.toLowerCase()
-  if (ua.indexOf("safari") != -1) {
+  if (ua.indexOf("safari") !== -1) {
     if (ua.indexOf("chrome") > -1) {
       return "Chrome"
     } else {
@@ -103,6 +103,9 @@ const Slider = ({ activeItem }) => {
           className={`slide ${index === i ? "active" : ""}`}
           key={photo.node.couverture.id}
           onClick={() => increment(index)}
+          onKeyDown={() => increment(index)}
+          role="button"
+          tabIndex={i}
         >
           {photo.node.couverture.file.contentType.includes("video") ? (
             <video playsInline loop autoPlay muted>

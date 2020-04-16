@@ -105,14 +105,16 @@ const Menu = ({
             <h1>studio mitsu</h1>
           </Link>
 
-          <div
+          <button
             className={`burger-btn ${open ? "--open" : ""}`}
             onClick={() => setOpen(open => !open)}
+            type="button"
+            aria-label="Toggle navigation"
           >
             <span></span>
             <span></span>
             <span></span>
-          </div>
+          </button>
         </div>
       </div>
       <div className={`cart ${showCart ? "--show" : ""}`}>
@@ -135,12 +137,14 @@ const Menu = ({
         </div>
         <div className="menu__dropdown">
           <div className={`dropdown --special ${showprojects ? "--show" : ""}`}>
-            <span
+            <button
               onClick={() => setShowprojects(showprojects => !showprojects)}
               className={showProjects ? "active" : ""}
+              type="button"
+              aria-label="Toggle projects"
             >
               projets
-            </span>
+            </button>
             <div className="dropdown__menu">
               <ul
                 className="menu__list --special-color dropdown__item"
