@@ -105,7 +105,7 @@ const Slider = ({ activeItem }) => {
           onClick={() => increment(index)}
           onKeyDown={() => increment(index)}
           role="button"
-          tabIndex={i}
+          tabIndex={0}
         >
           {photo.node.couverture.file.contentType.includes("video") ? (
             <video playsInline loop autoPlay muted>

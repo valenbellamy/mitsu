@@ -50,6 +50,11 @@ nav {
         padding-bottom: $main-size-sm;
       }
     }
+    @media (max-width: 991.98px) {
+      li:last-child {
+        padding-bottom: 3rem;
+      }
+    }
   }
   .filters {
     position: relative;
@@ -103,9 +108,11 @@ nav {
       top: 1.8rem;
       z-index: 100;
       border: none;
-      background: transparent;
+      background-color: transparent;
       padding: 0rem;
       span {
+        position: relative;
+        z-index: 100;
         width: 100%;
         height: 2px;
         background-color: $main-text-color;
