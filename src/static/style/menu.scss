@@ -118,6 +118,9 @@ nav {
         height: 2px;
         background-color: $main-text-color;
       }
+      &:focus {
+        outline: 0;
+      }
       &.--open {
         span:first-child {
           transform: translate(0px, -2px) rotate(45deg);
