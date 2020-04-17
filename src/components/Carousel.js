@@ -140,9 +140,9 @@ const Carousel = ({ data, project, prev, next }) => {
                 {media.isVideo ? (
                   <video
                     playsInline
-                    loop
-                    muted
-                    autoPlay
+                    autoPlay=""
+                    loop=""
+                    muted=""
                     poster={data.contentfulVideoPlaceholder.image.file.url}
                   >
                     {currentSystem === "iOS" || currentBrowser === "Safari" ? (
