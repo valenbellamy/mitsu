@@ -67,6 +67,13 @@ const Slider = ({ activeItem }) => {
           }
         }
       }
+      contentfulVideoPlaceholder {
+        image {
+          file {
+            url
+          }
+        }
+      }
       contentfulVariableCouleur {
         valeur
       }
@@ -80,6 +87,7 @@ const Slider = ({ activeItem }) => {
     setCurrentSystem(currentSystem)
     const currentBrowser = getBrowser()
     setCurrentBrowser(currentBrowser)
+    //console.log({ currentSystem, currentBrowser })
   }, [])
 
   useEffect(() => {
@@ -108,7 +116,13 @@ const Slider = ({ activeItem }) => {
           tabIndex={0}
         >
           {photo.node.couverture.file.contentType.includes("video") ? (
-            <video playsInline loop autoPlay muted>
+            <video
+              playsInline
+              loop
+              muted
+              autoPlay
+              poster={data.contentfulVideoPlaceholder.image.file.url}
+            >
               {currentSystem === "iOS" || currentBrowser === "Safari" ? (
                 <source
                   src={photo.node.couverture.file.url}
@@ -120,6 +134,7 @@ const Slider = ({ activeItem }) => {
                   type={photo.node.couvertureWebm.file.contentType}
                 />
               )}
+              <p>Sorry, the video can't be displayed with your browser.</p>
             </video>
           ) : (
             <Img

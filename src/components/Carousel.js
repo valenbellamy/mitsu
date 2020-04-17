@@ -103,6 +103,7 @@ const Carousel = ({ data, project, prev, next }) => {
     setCurrentSystem(currentSystem)
     const currentBrowser = getBrowser()
     setCurrentBrowser(currentBrowser)
+    //console.log({ currentSystem, currentBrowser })
   }, [])
 
   useLayoutEffect(() => {
@@ -155,6 +156,9 @@ const Carousel = ({ data, project, prev, next }) => {
                         type={media.mediaWebm.file.contentType}
                       />
                     )}
+                    <p>
+                      Sorry, the video can't be displayed with your browser.
+                    </p>
                     {/* <source
                       src={media.media.file.url}
                       type={media.media.file.contentType}
