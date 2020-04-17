@@ -118,9 +118,9 @@ const Slider = ({ activeItem }) => {
           {photo.node.couverture.file.contentType.includes("video") ? (
             <video
               playsInline
-              autoPlay=""
-              loop=""
-              muted=""
+              autoPlay
+              loop
+              muted
               poster={data.contentfulVideoPlaceholder.image.file.url}
             >
               {currentSystem === "iOS" || currentBrowser === "Safari" ? (
