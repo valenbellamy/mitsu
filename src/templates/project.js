@@ -34,6 +34,11 @@ export const query = graphql`
             url
           }
         }
+        poster {
+          file {
+            url
+          }
+        }
         date
         contenu {
           json

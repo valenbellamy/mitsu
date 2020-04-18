@@ -143,7 +143,11 @@ const Carousel = ({ data, project, prev, next }) => {
                     autoPlay
                     loop
                     muted
-                    poster={data.contentfulVideoPlaceholder.image.file.url}
+                    poster={
+                      media.poster
+                        ? media.poster.file.url
+                        : data.contentfulVideoPlaceholder.image.file.url
+                    }
                   >
                     {currentSystem === "iOS" || currentBrowser === "Safari" ? (
                       <source
@@ -159,16 +163,6 @@ const Carousel = ({ data, project, prev, next }) => {
                     <p>
                       Sorry, the video can't be displayed with your browser.
                     </p>
-                    {/* <source
-                      src={media.media.file.url}
-                      type={media.media.file.contentType}
-                    />
-                    {media.mediawebm && (
-                      <source
-                        src={media.mediaWebm.file.url}
-                        type={media.mediaWebm.file.contentType}
-                      />
-                    )} */}
                   </video>
                 ) : (
                   <Img

@@ -64,6 +64,11 @@ const Slider = ({ activeItem }) => {
                 url
               }
             }
+            poster {
+              file {
+                url
+              }
+            }
           }
         }
       }
@@ -121,7 +126,11 @@ const Slider = ({ activeItem }) => {
               autoPlay
               loop
               muted
-              poster={data.contentfulVideoPlaceholder.image.file.url}
+              poster={
+                photo.node.poster
+                  ? photo.node.poster.file.url
+                  : data.contentfulVideoPlaceholder.image.file.url
+              }
             >
               {currentSystem === "iOS" || currentBrowser === "Safari" ? (
                 <source
