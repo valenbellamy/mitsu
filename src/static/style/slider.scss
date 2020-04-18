@@ -31,7 +31,6 @@
     transition: opacity 0.5s ease;
     cursor: pointer;
     z-index: 1;
-    will-change: opacity, z-index;
     &:focus {
       outline: 0;
     }
