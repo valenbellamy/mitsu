@@ -123,7 +123,8 @@ const Slider = ({ activeItem }) => {
           {photo.node.couverture.file.contentType.includes("video") ? (
             <video
               playsInline
-              autoPlay
+              // autoPlay
+              autoPlay={index === i ? true : false}
               loop
               muted
               poster={
