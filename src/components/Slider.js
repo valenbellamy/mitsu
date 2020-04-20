@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
+import Video from "./Video"
 
 function getMobileOperatingSystem() {
   var userAgent = navigator.userAgent || navigator.vendor || window.opera
@@ -121,31 +122,16 @@ const Slider = ({ activeItem }) => {
           tabIndex={0}
         >
           {photo.node.couverture.file.contentType.includes("video") ? (
-            <video
-              playsInline
-              autoPlay
-              //autoPlay={index === i ? true : false}
-              loop
-              muted
-              poster={
-                photo.node.poster
-                  ? photo.node.poster.file.url
-                  : data.contentfulVideoPlaceholder.image.file.url
-              }
-            >
-              {currentSystem === "iOS" || currentBrowser === "Safari" ? (
-                <source
-                  src={photo.node.couverture.file.url}
-                  type={photo.node.couverture.file.contentType}
-                />
-              ) : (
-                <source
-                  src={photo.node.couvertureWebm.file.url}
-                  type={photo.node.couvertureWebm.file.contentType}
-                />
-              )}
-              <p>Sorry, the video can't be displayed with your browser.</p>
-            </video>
+            <Video
+              videoMp4={photo.node.couverture}
+              videoWebm={photo.node.couvertureWebm}
+              poster={photo.node.poster}
+              system={currentSystem}
+              browser={currentBrowser}
+              placeholder={data.contentfulVideoPlaceholder.image.file.url}
+              position={i}
+              currentSlide={index}
+            />
           ) : (
             <Img
               fluid={photo.node.couverture.fluid}

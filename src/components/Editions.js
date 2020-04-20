@@ -20,13 +20,13 @@ const Editions = ({ editions, bg }) => {
       {editions.edges.map(edition => (
         <div className="item" key={edition.node.id}>
           <div className="item__top">
-            <div className="item__image">
-              <Img
-                fluid={edition.node.couverture.fluid}
-                alt={edition.node.couverture.description}
-                backgroundColor={`${bg.valeur}`}
-              />
-            </div>
+            {/* <div className="item__image"> */}
+            <Img
+              fluid={edition.node.couverture.fluid}
+              alt={edition.node.couverture.description}
+              backgroundColor={`${bg.valeur}`}
+            />
+            {/* </div> */}
             <Link to={`/edition/${edition.node.slug}`}>
               <span>more infos</span>
             </Link>

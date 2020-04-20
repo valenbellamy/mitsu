@@ -38,7 +38,9 @@ const Edition = ({ data }) => {
 
         {taille && <span>{taille}</span>}
         {date && <span>{date}</span>}
-        <span>
+        {langue && <span>{langue}</span>}
+        {copie && <span>{copie}</span>}
+        {/* <span>
           {langue && (
             <>
               {langue}
@@ -46,7 +48,7 @@ const Edition = ({ data }) => {
             </>
           )}
           {copie && <>{copie}</>}
-        </span>
+        </span> */}
       </div>
       <div className="edition-detail__footer">
         {prix && <span className="edition-detail__price">€ {prix}</span>}

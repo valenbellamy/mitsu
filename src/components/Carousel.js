@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import Img from "gatsby-image"
 import Project from "./Project"
 import { navigate } from "gatsby"
+import Video from "./Video"
 //import { useDrag } from "react-use-gesture"
 
 function getMobileOperatingSystem() {
@@ -138,33 +139,43 @@ const Carousel = ({ data, project, prev, next }) => {
             >
               <div className="item__inner" style={{ height: height }}>
                 {media.isVideo ? (
-                  <video
-                    playsInline
-                    autoPlay
-                    loop
-                    muted
-                    poster={
-                      media.poster
-                        ? media.poster.file.url
-                        : data.contentfulVideoPlaceholder.image.file.url
-                    }
-                  >
-                    {currentSystem === "iOS" || currentBrowser === "Safari" ? (
-                      <source
-                        src={media.media.file.url}
-                        type={media.media.file.contentType}
-                      />
-                    ) : (
-                      <source
-                        src={media.mediaWebm.file.url}
-                        type={media.mediaWebm.file.contentType}
-                      />
-                    )}
-                    <p>
-                      Sorry, the video can't be displayed with your browser.
-                    </p>
-                  </video>
+                  <Video
+                    videoMp4={media.media}
+                    videoWebm={media.mediaWebm}
+                    poster={media.poster}
+                    system={currentSystem}
+                    browser={currentBrowser}
+                    placeholder={data.contentfulVideoPlaceholder.image.file.url}
+                    position={i}
+                    currentSlide={index}
+                  />
                 ) : (
+                  // <video
+                  //   playsInline
+                  //   autoPlay
+                  //   loop
+                  //   muted
+                  //   poster={
+                  //     media.poster
+                  //       ? media.poster.file.url
+                  //       : data.contentfulVideoPlaceholder.image.file.url
+                  //   }
+                  // >
+                  //   {currentSystem === "iOS" || currentBrowser === "Safari" ? (
+                  //     <source
+                  //       src={media.media.file.url}
+                  //       type={media.media.file.contentType}
+                  //     />
+                  //   ) : (
+                  //     <source
+                  //       src={media.mediaWebm.file.url}
+                  //       type={media.mediaWebm.file.contentType}
+                  //     />
+                  //   )}
+                  //   <p>
+                  //     Sorry, the video can't be displayed with your browser.
+                  //   </p>
+                  // </video>
                   <Img
                     fluid={media.media.fluid}
                     alt={media.media.description}
