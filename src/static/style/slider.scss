@@ -4,11 +4,6 @@
   height: calc(100vh - 3.4rem);
   align-items: center;
   position: relative;
-  // position: fixed;
-  // top: $main-size;
-  // left: 0rem;
-  // width: 100%;
-  // justify-content: center;
   opacity: 0;
   transition: opacity 0.5s ease;
   &.--transition-over {

@@ -79,39 +79,8 @@
       }
       @media (max-width: 767.98px) {
         background: transparent;
-        //display: none;
       }
     }
-    // .--swipe {
-    //   display: none;
-    //   width: 0%;
-    //   border: none;
-    //   background: none;
-    //   &:focus {
-    //     outline: 0;
-    //   }
-    //   @media (max-width: 767.98px) {
-    //     display: block;
-    //     width: 100%;
-    //   }
-    // }
-    // .btn__video {
-    //   display: none;
-    //   position: absolute;
-    //   top: 80px;
-    //   left: 46%;
-    //   width: 80px;
-    //   height: 80px;
-    //   background-color: yellow;
-    //   z-index: 1000;
-    //   cursor: pointer;
-    //   &:hover {
-    //     background-color: red;
-    //   }
-    //   @media (max-width: 767.98px) {
-    //     display: block;
-    //   }
-    // }
   }
   .carousel__info {
     .carousel__header {
@@ -138,12 +107,6 @@
             @media (max-width: 1199.98px) {
               margin-right: $main-size-sm;
             }
-            // @media (max-width: 767.98px) {
-            //   margin-right: 0.8rem;
-            //   &:last-child {
-            //     margin-bottom: 0rem;
-            //   }
-            // }
           }
           h2 {
             @media (max-width: 767.98px) {
@@ -164,7 +127,6 @@
           }
           @media (max-width: 767.98px) {
             margin-right: 0rem;
-            //margin-bottom: $main-size-sm;
           }
         }
         span {

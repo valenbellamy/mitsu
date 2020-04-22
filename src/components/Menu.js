@@ -192,7 +192,11 @@ const Menu = ({
             </div>
           </div>
           <div className="filters">
-            <Link to="/editions" className={showFilters ? "active" : ""}>
+            <Link
+              to="/editions"
+              //className={showFilters ? "active" : ""}
+              activeClassName="active"
+            >
               <span>editions</span>
             </Link>
             <ul
@@ -200,18 +204,23 @@ const Menu = ({
                 showeditions ? "--show" : ""
               }`}
             >
-              {/* {data.allContentfulCollection.edges.map((edge, i) => (
+              {data.allContentfulCollection.edges.map((edge, i) => (
                 <li key={edge.node.id}>
-                  <Link to={`/editions/${edge.node.slug}`}>
+                  <Link
+                    to={`/editions/${edge.node.slug}`}
+                    activeClassName="active"
+                  >
                     {edge.node.nom}
                   </Link>
                 </li>
               ))}
-              <li>
-                <Link to="/editions">all</Link>
+              {/* <li>
+                <Link to="/editions" activeClassName="active">all</Link>
               </li> */}
               <li>
-                <Link to="/editions/about">about</Link>
+                <Link to="/editions/about" activeClassName="active">
+                  about
+                </Link>
               </li>
             </ul>
           </div>
