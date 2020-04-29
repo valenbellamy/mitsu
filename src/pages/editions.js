@@ -41,10 +41,11 @@ const editions = ({ data }) => {
         <SEO title="Editions" />
         <Menu showFilters={true} showCart={true} specialPaddingXs={true} />
         <div className="content">
-          <Editions
+          {/* <Editions
             editions={data.allContentfulEdition}
             bg={data.contentfulVariableCouleur}
-          />
+          /> */}
+          <h1>Coming soon !</h1>
         </div>
       </main>
     </Layout>

@@ -204,7 +204,7 @@ const Menu = ({
                 showeditions ? "--show" : ""
               }`}
             >
-              {data.allContentfulCollection.edges.map((edge, i) => (
+              {/* {data.allContentfulCollection.edges.map((edge, i) => (
                 <li key={edge.node.id}>
                   <Link
                     to={`/editions/${edge.node.slug}`}
@@ -213,10 +213,7 @@ const Menu = ({
                     {edge.node.nom}
                   </Link>
                 </li>
-              ))}
-              {/* <li>
-                <Link to="/editions" activeClassName="active">all</Link>
-              </li> */}
+              ))} */}
               <li>
                 <Link to="/editions/about" activeClassName="active">
                   about

@@ -44,10 +44,11 @@ const collection = ({ data, pageContext }) => {
         <SEO title={pageContext.nom} />
         <Menu showFilters={true} showCart={true} specialPaddingXs={true} />
         <div className="content">
-          <Editions
+          {/* <Editions
             editions={data.allContentfulEdition}
             bg={data.contentfulVariableCouleur}
-          />
+          /> */}
+          <h1>Coming soon !</h1>
         </div>
       </main>
     </Layout>

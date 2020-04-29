@@ -40,12 +40,13 @@ const edition = ({ data, pageContext }) => {
         <SEO title={data.contentfulEdition.titre} />
         <Menu showFilters={true} showCart={true} specialPaddingXs={true} />
         <div className="content">
-          <Carousel2
+          {/* <Carousel2
             data={data}
             edition={true}
             prev={pageContext.prev.slug}
             next={pageContext.next.slug}
-          />
+          /> */}
+          <h1>Coming soon !</h1>
         </div>
       </main>
     </Layout>

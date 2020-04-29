@@ -15,7 +15,6 @@ const Editions = ({ editions, bg }) => {
       }
     }
   `)
-  console.log(editions)
   return (
     <div className="grid grid--editions">
       {editions.edges.map(edition => (
