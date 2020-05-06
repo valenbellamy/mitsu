@@ -7,7 +7,7 @@ module.exports = {
     title: `Studio Mitsu`,
     description: `Studio Mitsu is a graphic design studio.`,
     author: `@valenbellamy`,
-    siteUrl: `https://studio-mitsu.netlify.com/`,
+    siteUrl: `https://studio-mitsu.netlify.app/`,
   },
   plugins: [
     "gatsby-plugin-sass",
