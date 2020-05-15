@@ -20,6 +20,7 @@ const Video = ({
     }
     if (play && position !== currentSlide) {
       videoEl.current.pause()
+      videoEl.current.currentTime = 0
       setPlay(false)
     }
   }, [currentSlide])

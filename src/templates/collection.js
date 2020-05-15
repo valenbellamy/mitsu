@@ -42,7 +42,11 @@ const collection = ({ data, pageContext }) => {
     <Layout>
       <main>
         <SEO title={pageContext.nom} />
-        <Menu showFilters={true} showCart={true} specialPaddingXs={true} />
+        <Menu
+          showFilters={true}
+          showCart={true}
+          // specialPaddingXs={true}
+        />
         <div className="content">
           {/* <Editions
             editions={data.allContentfulEdition}

@@ -144,6 +144,9 @@ nav {
       padding: $main-size-sm;
       max-height: none;
     }
+    @media (max-width: 767.98px) {
+      background-color: #ffffff;
+    }
     &.--bg {
       @media (max-width: 991.98px) {
         background-color: #ffffff;
@@ -253,8 +256,14 @@ nav {
     display: none;
     .dropdown__item {
       @media (max-width: 767.98px) {
-        height: 75vh;
+        //height: 75vh;
         overflow-y: scroll;
+        li {
+          //padding: 0rem;
+          a {
+            padding: 0.75rem 0rem;
+          }
+        }
       }
     }
     @media (max-width: 991.98px) {
@@ -265,6 +274,9 @@ nav {
     }
     @media (max-width: 767.98px) {
       left: 45%;
+      width: 65% !important;
+      padding-bottom: 50px;
+      height: 80vh;
     }
   }
   &.--special {

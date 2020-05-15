@@ -39,7 +39,11 @@ const editions = ({ data }) => {
     <Layout>
       <main>
         <SEO title="Editions" />
-        <Menu showFilters={true} showCart={true} specialPaddingXs={true} />
+        <Menu
+          showFilters={true}
+          showCart={true}
+          //specialPaddingXs={true}
+        />
         <div className="content">
           {/* <Editions
             editions={data.allContentfulEdition}

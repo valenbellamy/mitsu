@@ -179,7 +179,7 @@ const Carousel = ({ data, project, prev, next }) => {
                     )}
                     {media.date && <h3>{media.date}</h3>}
                   </div>
-                  <div>
+                  <div className="carousel__index">
                     {index + 1}/{limit}
                   </div>
                 </div>
