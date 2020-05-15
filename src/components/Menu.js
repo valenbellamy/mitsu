@@ -117,9 +117,9 @@ const Menu = ({
           </button>
         </div>
       </div>
-      <div className={`cart ${showCart ? "--show" : ""}`}>
+      {/* <div className={`cart ${showCart ? "--show" : ""}`}>
         <Cart />
-      </div>
+      </div> */}
       <div className={`menu__collapse ${open ? "--visible" : ""}`}>
         <div className="menu__center">
           <ul>

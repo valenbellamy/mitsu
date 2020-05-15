@@ -45,7 +45,7 @@ const editions = ({ data }) => {
             editions={data.allContentfulEdition}
             bg={data.contentfulVariableCouleur}
           /> */}
-          <h1 className="special-h1">Coming soon !</h1>
+          <h1 className="special-h1 --normal">Coming soon.</h1>
         </div>
       </main>
     </Layout>

@@ -24,7 +24,7 @@ export const query = graphql`
             contentType
             url
           }
-          fluid(quality: 90) {
+          fluid(quality: 100) {
             ...GatsbyContentfulFluid_withWebp_noBase64
           }
         }

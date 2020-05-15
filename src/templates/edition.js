@@ -22,7 +22,7 @@ export const query = graphql`
       photo {
         id
         description
-        fluid(quality: 90) {
+        fluid(quality: 100) {
           ...GatsbyContentfulFluid_withWebp_noBase64
         }
       }
