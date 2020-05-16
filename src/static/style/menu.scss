@@ -208,6 +208,7 @@ nav {
       @media (max-width: 991.98px) {
         top: 66%;
         left: $main-size-sm;
+        width: auto;
         li {
           padding-bottom: $main-size-sm;
         }
