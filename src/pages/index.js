@@ -12,7 +12,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <main>
-        <SEO title="Accueil" />
+        <SEO title="Home" />
         <Menu menuHover={handleHover} />
         <div className="content">
           <Slider activeItem={index} />
