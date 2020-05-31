@@ -145,6 +145,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  visibility: hidden;
   @media (max-width: 1199.98px) {
     padding: $main-size-sm;
   }

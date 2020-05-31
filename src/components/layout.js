@@ -27,6 +27,7 @@ const Layout = ({ children }) => {
   `)
 
   useEffect(() => {
+    document.body.style.visibility = "visible"
     document.documentElement.style.setProperty(
       "--colorHover",
       `${data.contentfulVariableCouleur.valeur}`
