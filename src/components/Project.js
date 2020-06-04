@@ -2,8 +2,8 @@ import React, { useState } from "react"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { INLINES } from "@contentful/rich-text-types"
 
-const Project = ({ content }) => {
-  const [open, setOpen] = useState(false)
+const Project = ({ content, open, setOpen }) => {
+  //const [open, setOpen] = useState(false)
   const options = {
     renderNode: {
       [INLINES.HYPERLINK]: node => {
@@ -19,7 +19,8 @@ const Project = ({ content }) => {
     <div className={open ? "project-detail --open" : "project-detail"}>
       <button
         className="trigger"
-        onClick={() => setOpen(open => !open)}
+        //onClick={() => setOpen(open => !open)}
+        onClick={() => setOpen(!open)}
         type="button"
         aria-label="See information"
         aria-expanded="true"

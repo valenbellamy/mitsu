@@ -10,9 +10,11 @@ export const query = graphql`
     contentfulProjet(slug: { eq: $slug }) {
       titre
       client
+      descriptionSeo
       carousel {
         id
         titre
+
         categorie {
           nom
           id
@@ -60,10 +62,16 @@ export const query = graphql`
 `
 
 const project = ({ data, pageContext }) => {
+  // const description = data.contentfulProjet.descriptionSeo
+  //   ? data.contentfulProjet.descriptionSeo
+  //   : "Graphic design and art direction studio based in Paris. "
   return (
     <Layout>
       <main>
-        <SEO title={data.contentfulProjet.titre} />
+        <SEO
+          title={data.contentfulProjet.titre}
+          description={data.contentfulProjet.descriptionSeo}
+        />
         <Menu showProjects={true} />
         <div className="content">
           <Carousel

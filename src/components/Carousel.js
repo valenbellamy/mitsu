@@ -43,12 +43,11 @@ const Carousel = ({ data, project, prev, next }) => {
   const [limit, setLimit] = useState(0)
   const [index, setIndex] = useState(0)
   const [height, setHeight] = useState(0)
-  //const [width, setWidth] = useState(0)
   const [transition, setTransition] = useState(false)
   const [currentSystem, setCurrentSystem] = useState("")
   const [currentBrowser, setCurrentBrowser] = useState("")
+  const [open, setOpen] = useState(false)
   const ref = useRef(null)
-  // const videoref = useRef(null)
 
   const medias = data.contentfulProjet.carousel
 
@@ -68,43 +67,13 @@ const Carousel = ({ data, project, prev, next }) => {
     }
   }
 
-  // const bind = useDrag(
-  //   ({
-  //     swipe: [swipeX],
-  //     tap,
-  //     direction: [directionX],
-  //     initial: [initialX],
-  //     dragging,
-  //     elapsedTime,
-  //   }) => {
-
-  //     const dir = directionX < 0 ? -1 : 1
-  //     if (tap && initialX > width / 2 && elapsedTime > 0) {
-  //       nextClick()
-  //     }
-  //     if (tap && initialX < width / 2 && elapsedTime > 0) {
-  //       prevClick()
-  //     }
-
-  //     if (!dragging && !tap && dir === -1) {
-  //       prevClick()
-  //     }
-  //     if (!dragging && !tap && dir === 1) {
-  //       nextClick()
-  //     }
-  //   },
-  //   { filterTaps: true, lockDirection: true, swipeVelocity: [0.1, 0.1] }
-  // )
-
   useEffect(() => {
     setLimit(data.contentfulProjet.carousel.length)
-    //setWidth(window.innerWidth)
     setTransition(true)
     const currentSystem = getMobileOperatingSystem()
     setCurrentSystem(currentSystem)
     const currentBrowser = getBrowser()
     setCurrentBrowser(currentBrowser)
-    //console.log({ currentSystem, currentBrowser })
   }, [])
 
   useLayoutEffect(() => {
@@ -184,7 +153,13 @@ const Carousel = ({ data, project, prev, next }) => {
                   </div>
                 </div>
               </div>
-              {media.contenu && <Project content={media.contenu} />}
+              {media.contenu && (
+                <Project
+                  content={media.contenu}
+                  open={open}
+                  setOpen={setOpen}
+                />
+              )}
             </div>
           ))}
 

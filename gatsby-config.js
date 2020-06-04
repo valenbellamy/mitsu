@@ -5,7 +5,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `Studio Mitsu`,
-    description: `Studio Mitsu is a graphic design studio.`,
+    description: `Graphic design and art direction studio based in Paris.`,
     author: `@valenbellamy`,
     siteUrl: `https://studiomitsu.com/`,
   },
