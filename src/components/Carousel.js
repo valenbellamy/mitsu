@@ -89,7 +89,10 @@ const Carousel = ({ data, project, prev, next }) => {
           ref.current.clientWidth /
             data.contentfulProjet.carousel[i].media.fluid.aspectRatio
         )
-        break
+        return
+      } else {
+        setHeight(ref.current.clientWidth / 1.77)
+        return
       }
     }
   }
